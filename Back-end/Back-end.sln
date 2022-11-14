@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{CDC1FE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Food", "WebApi.Food\WebApi.Food.csproj", "{E630EE09-B890-4C14-B3E6-A0D5D1E86506}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia.DataAcces", "Persistencia.DataAcces\Persistencia.DataAcces.csproj", "{4C3DEE5B-E2CD-4CA4-A172-B3701809F9E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{E630EE09-B890-4C14-B3E6-A0D5D1E86506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E630EE09-B890-4C14-B3E6-A0D5D1E86506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E630EE09-B890-4C14-B3E6-A0D5D1E86506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C3DEE5B-E2CD-4CA4-A172-B3701809F9E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3DEE5B-E2CD-4CA4-A172-B3701809F9E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3DEE5B-E2CD-4CA4-A172-B3701809F9E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3DEE5B-E2CD-4CA4-A172-B3701809F9E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E630EE09-B890-4C14-B3E6-A0D5D1E86506} = {CDC1FE1F-709A-4C53-89A2-A13E0EFBCB6C}
+		{4C3DEE5B-E2CD-4CA4-A172-B3701809F9E5} = {DDA3E60C-2136-43F9-836C-CE424F52B34D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B8BEE08-CC7A-451D-9F7E-DE6F4D55B5E8}
