@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "GJc1M8Ji6Yd/y0lsV2FkL6FedoNBb0nRPiASpL8c4pMCJjdvANPAnilz8gEQmk/kHOpqSvC1nHx1cryrSy9zWg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\edin-\\OneDrive\\Documentos\\Byedi\\DeveloperNetCore\\NoCountry\\c8-08-ft-csharpreact\\Back-end\\WebApiFood\\WebApiFood.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\edin-\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\edin-\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\edin-\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\edin-\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\edin-\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\edin-\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
