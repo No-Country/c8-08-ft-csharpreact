@@ -1,0 +1,28 @@
+.container {
+    height: 380px;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.picture {
+    height: 285px;
+    width: 300px;
+    background-color: rgb(60, 140, 108);
+    margin-top: 0px;
+    border-radius: 15px;
+}
+
+.name {
+    margin: 0px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.details {
+    margin: 0px;
+    color: rgb(116, 112, 112);
+    font-size: 1rem;
+    font-weight: 400;
+
+}
