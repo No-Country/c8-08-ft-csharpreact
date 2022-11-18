@@ -1,8 +1,6 @@
 import React from "react"
 import styles from "./styles/Filters.module.css"
-import { MdOutlineFoodBank } from 'react-icons/md'
-import { HiUserCircle, HiSearchCircle } from 'react-icons/hi'
-import Link from "next/link"
+import { HiSearchCircle } from 'react-icons/hi'
 
 export default function Filters () {
   const Provincia = ["Mendoza", "San Luis", "Bs.As."]
