@@ -1,0 +1,57 @@
+.container {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 70px;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.2);    
+}
+
+.filtros {
+    height: 80px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input, .search, .inputName  {
+    color: black;
+    height: 50px;
+    text-align: center;
+}
+
+.input, .search {
+    border: solid 1px rgb(169, 169, 169);
+    background-color: white;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-between;
+    border-radius: 20px 50px 50px 20px;
+
+}
+
+.input {
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.inputName {
+    width: 80%;
+    border: none;
+    background-color: transparent;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+}
+
+.iconSearch {
+    height: 50px;
+    width: 50px;
+}
