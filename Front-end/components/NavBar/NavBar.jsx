@@ -14,12 +14,14 @@ export default function NavBar () {
   return (
         <>
         <div className={styles.container}>
-            <div className={styles.boxIcon}>
-                <MdOutlineFoodBank className={styles.icon} />
-                <h1 className={styles.name}>Let{"'"}s eat!</h1>
-            </div>
+            <Link href={"/"}>
+                <div className={styles.boxIcon}>
+                    <MdOutlineFoodBank className={styles.icon} />
+                    <h1 className={styles.name}>Let{"'"}s eat!</h1>
+                </div>
+            </Link>
             <div className={styles.boxUser}>
-                <Link className={styles.link} href={"https://www.airbnb.com.ar"}>Do you sell food?</Link>
+                <Link className={styles.link} href={"/signUpOwner"}>Do you sell food?</Link>
                 <HiUserCircle className={styles.iconUser} onClick={handleClick}/>
             </div>
         </div>
