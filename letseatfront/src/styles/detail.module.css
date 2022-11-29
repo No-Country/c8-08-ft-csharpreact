@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    padding: 0px 110px;
+}
+
+.name {
+    margin: 20px 0px 0px 0px;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.boxDetails {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.details {
+        margin: 0px;
+        color: rgb(116, 112, 112);
+        font-size: 1rem;
+        font-weight: 400;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+}
+
+.boxPictures {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.principalPicture {
+    height: 350px;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+    background-color: rgb(60, 140, 108);
+}
+
+.boxSecondaryPictures {
+    columns: 2;
+    column-gap: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 50%;
+}
+
+.secondaryPicture1, .secondaryPicture2, .secondaryPicture3, .secondaryPicture4 {
+    background-color: rgb(60, 140, 108);
+    height: 171px;
+    width: 49%;
+}
+
+.secondaryPicture2 {
+    border-radius: 0 10px 0 0;
+}
+
+.secondaryPicture4 {
+    border-radius: 0 0 10px 0;
+}
+
+.nameOwner {
+    margin: 30px 0px 0px 0px;
+    color: rgb(41, 41, 41);
+    font-size: 1.5rem;
+    font-weight: 400;
+
+}
