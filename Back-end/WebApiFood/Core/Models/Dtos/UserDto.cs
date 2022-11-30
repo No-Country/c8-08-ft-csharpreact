@@ -11,8 +11,8 @@ namespace WebApiFood.Core.Models.Dtos
         public DateTime Create { get; set; }
         public DateTime Update { get; set; }
         public int RoleId { get; set; }
-        public Role Role { get; set; }
-        public Seller Seller { get; set; }
-        public Customer customer { get; set; }
+       // public Role Role { get; set; }
+        //public Seller Seller { get; set; }
+        //public Customer customer { get; set; }
     }
 }

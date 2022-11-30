@@ -10,5 +10,6 @@
         public string UrlPhoto { get; set; }
         public int UserId { get; set; }
         public DateTime Birthday { get; set; }
+        public UserDto User { get; set; }
     }
 }

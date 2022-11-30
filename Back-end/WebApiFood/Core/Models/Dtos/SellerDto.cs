@@ -12,6 +12,8 @@ namespace WebApiFood.Core.Models.Dtos
         public string UrlPhoto { get; set; }
         public string Adress { get; set; }
         public int UserId { get; set; }
+        public UserDto User { get; set; }
+
 
     }
 }

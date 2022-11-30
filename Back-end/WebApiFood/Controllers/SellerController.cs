@@ -7,10 +7,10 @@ namespace WebApiFood.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VendedorController : ControllerBase
+    public class SellerController : ControllerBase
     {
         private readonly ISellerBusiness _Bservices;
-        public VendedorController(ISellerBusiness Bservices)
+        public SellerController(ISellerBusiness Bservices)
         {
             _Bservices = Bservices;
         }

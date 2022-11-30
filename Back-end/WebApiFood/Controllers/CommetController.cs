@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiFood.Core.Interfaces;
 using WebApiFood.Core.Models.Dtos;
 namespace WebApiFood.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="3")]
     public class CommetController : ControllerBase
     {
         private readonly ICommentBusiness _commentBusiness;

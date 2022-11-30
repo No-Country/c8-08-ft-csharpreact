@@ -1,4 +1,4 @@
-﻿namespace WebApiFood.Core.Models.Dtos
+﻿namespace WebApiFood.Core.Models.Dtos.BusinesDtos
 {
     public class ScoreBusinesDto
     {
