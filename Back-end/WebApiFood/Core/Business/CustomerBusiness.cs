@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using WebApiFood.Core.Helpers;
 using WebApiFood.Core.Interfaces;
 using WebApiFood.Core.Models.Dtos;
 using WebApiFood.Entities;
@@ -8,17 +9,20 @@ using WebApiFood.Repositories.Interfaces;
 
 namespace WebApiFood.Core.Business
 {
-    public class UsuarioBusiness : IUsuarioBusiness
+    public class CustomerBusiness : ICustomerBusiness
     {
         private readonly IUnitOfWork _Repository;
         private readonly IMapper _mapper;
         private readonly IHandlerArch _archivo;
-        public UsuarioBusiness(IUnitOfWork repository,IMapper mapper,IHandlerArch archivo)
+        private readonly IUserRepository _userRepository;
+        private readonly IConfiguration _configuration;
+        public CustomerBusiness(IUnitOfWork repository,IMapper mapper, IHandlerArch archivo, IUserRepository userRepository, IConfiguration configuration)
         {
             _Repository = repository;
             _mapper = mapper;
-         
             _archivo = archivo;
+            _userRepository = userRepository;
+            _configuration = configuration;
         }
 
         public Task<IEnumerable<User>> GetAll()
@@ -80,6 +84,40 @@ namespace WebApiFood.Core.Business
         public Task<bool> Delete(User Entity)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Response<string>> loginUser(LoginDto userDto)
+        {
+            Response<string> response = new Response<string>();
+            try
+            {
+                var user = await _userRepository.GetByName(userDto.Email);
+                if (user ==null)
+                {
+                    response.IsSucces=false;
+                    response.Message = "no se encontro el usuario!";
+                }
+                else
+                {
+                    if(user.Password == userDto.Password)
+                    {
+                        response.Data = TokenJwt.CrearToken(user, _configuration);
+                        response.IsSucces = true;
+                        response.Message = "login exitoso!!";
+                    }
+                    else
+                    {
+                        response.IsSucces = false;
+                        response.Message = "Contraseña Incorrecta!!";
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message; 
+            }
+            return response;
         }
     }
 }

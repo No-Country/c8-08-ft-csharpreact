@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using WebApiFood.Core.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using WebApiFood.Core.Interfaces;
+using WebApiFood.Core.Models.Dtos.BusinesDtos;
+using WebApiFood.Core.Models.Dtos.DishDtos;
 
 namespace WebApiFood.Controllers
 {

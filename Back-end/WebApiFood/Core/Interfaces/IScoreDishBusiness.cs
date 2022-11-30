@@ -1,4 +1,4 @@
-﻿using WebApiFood.Core.Models.Dtos;
+﻿using WebApiFood.Core.Models.Dtos.DishDtos;
 using WebApiFood.Repositories;
 
 namespace WebApiFood.Core.Interfaces

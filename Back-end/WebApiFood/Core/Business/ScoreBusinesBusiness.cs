@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using WebApiFood.Core.Interfaces;
-using WebApiFood.Core.Models.Dtos;
+using WebApiFood.Core.Models.Dtos.BusinesDtos;
 using WebApiFood.Entities;
 using WebApiFood.Repositories;
 using WebApiFood.Repositories.Interfaces;

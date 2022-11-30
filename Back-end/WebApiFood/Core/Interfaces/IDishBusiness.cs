@@ -1,4 +1,6 @@
 ﻿using WebApiFood.Core.Models.Dtos;
+using WebApiFood.Core.Models.Dtos.CommentDtos;
+using WebApiFood.Core.Models.Dtos.DishDtos;
 using WebApiFood.Entities;
 using WebApiFood.Repositories;
 
@@ -7,9 +9,11 @@ namespace WebApiFood.Core.Interfaces
     public interface IDishBusiness
     {
         Task<Response<bool>> Create(RgDishDto rgDishDto);
+        Task<Response<IEnumerable<GetDishDto>>> GetAllDish(int idBus);
+        Task<Response<IEnumerable<GetCommentDto>>> GetAllCommentByDish(int idDish);
         Task<bool> Update(User Entity);
         Task<IEnumerable<User>> GetAll();
         Task<User> GetById(int id);
-        Task<bool> Delete(User Entity);
+        Task<Response<bool>> Delete(int  IdEntity);
     }
 }

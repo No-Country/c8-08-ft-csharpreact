@@ -12,7 +12,7 @@ namespace WebApiFood.ConfigStarup.Services
         public static IServiceCollection AddInyections( this IServiceCollection services)
         {
           
-            services.AddScoped<IUsuarioBusiness, UsuarioBusiness>();
+            services.AddScoped<ICustomerBusiness, CustomerBusiness>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISellerBusiness, SellerBusiness>();
@@ -23,8 +23,11 @@ namespace WebApiFood.ConfigStarup.Services
             services.AddScoped<ICommentBusiness, CommentBusiness>();
             services.AddScoped<IScoreBusinesBusiness, ScoreBusinesBusiness>();
             services.AddScoped<IScoreDishBusiness, ScoreDishBusiness>();
+            services.AddScoped<IUserBusiness, UserBusiness>();
             services.AddScoped<IResevationBusiness, ReservationBusiness>();
             services.AddScoped<IHandlerArch, HandlerArchivos>();
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<IPictureDishRepository, PictureDishRepository>();
             return services;
         }
     }
