@@ -1,9 +1,11 @@
 import axios from 'axios';
 import Swal from "sweetalert2";
-import { 
-     } from './actionTypes';
+import { GET_ALL_RESTAURANTS } from './actionTypes';
 
-const UrlUser = "https://81df-190-2-211-112.sa.ngrok.io/api/Login"
+const URLprincipal = "https://b7d7-190-2-211-112.sa.ngrok.io";
+
+const UrlUser = `${URLprincipal}/api/Login`;
+const UrlAllRestaurant = `${URLprincipal}/api/Business/allBusines?PageNumber=1&PageSize=5`; 
 
 
 export const postLogIn = (valuesInput) => {
@@ -27,3 +29,21 @@ export const postLogIn = (valuesInput) => {
         }
     };
 };
+
+export const getAllRestaurants = () => (dispatch) => {
+    return async () => {
+        try {
+            await axios.get(UrlAllRestaurant)
+            .then((response) =>
+                dispatch({
+                type: GET_ALL_RESTAURANTS,
+                payload: response.data,
+                })
+                .then(console.log(response))
+                
+            )
+        } catch (error) {
+            console.log(error)
+        }
+    }
+  };

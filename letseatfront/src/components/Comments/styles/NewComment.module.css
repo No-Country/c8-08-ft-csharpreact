@@ -1,16 +1,14 @@
 .container {
     width: 100%;
-    min-height: 100vh;
-    background-color:  rgba(0, 0, 0, 0.734);
-    position: absolute;
-    top: 100vh;
+    height: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
+    align-items: center;
 }
 
 .boxForm {
-    width: 60%;
+    width: 80%;
     height: 500px;
     background-color: white;
     border-radius: 20px;
@@ -24,8 +22,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    width: 80%;
-
+    width: 100%;
 }
 
 .secondaryBox {
@@ -33,7 +30,6 @@
     display: flex;
     flex-direction: row;
     gap: 8px;
-    
 }
 
 .mainTitle {
@@ -46,14 +42,14 @@
     font-weight: 400;
 }
 
-.input, .button, .inputSelect, .inputLogIn {
+.input, .button, .inputSelect, .inputLogIn, .buttonCancel {
     height: 50px;
     padding: 0px 20px;
     border-radius: 10px;
     font-size: 1rem;
 }
 
-.input, .inputLogIn, .inputSelect {
+.input, .inputLogIn, .inputSelect, .inputTextarea {
     border: solid 1px rgb(169, 169, 169);
     background-color: white;
     color: black;
@@ -64,8 +60,12 @@
     width: 50%;
 }
 
-.inputSelect {
-    width: 57%;
+.inputTextarea {
+    width: 100%;
+    height: 100px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
 }
 
 .text {
@@ -84,15 +84,30 @@
     font-weight: 700;
 }
 
-.button {
+.button, .buttonCancel {
     border: none;
-    background-color: rgb(60, 140, 108);
     font-weight: bold;
     color: white;
 }
+
+.button {
+    background-color: rgb(60, 140, 108);
+}
+
 .button:hover {
     color: rgb(60, 140, 108);
     background-color: rgb(39, 39, 39);
+    cursor: pointer;
+}
+
+.buttonCancel {
+    background-color: rgb(61, 75, 70);
+    margin-top: 8px;
+}
+
+.buttonCancel:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(85, 47, 47);
     cursor: pointer;
 }
 
@@ -100,12 +115,13 @@
     width: 45px;
     height: 45px;
     color: rgb(102, 101, 101);
-    position: relative;
-    top: -15px;
-    left: 360px;
+    position: absolute;
+    top: 90px;
+    left: 27%;
 }
 
 .iconClose:hover {
     color: rgb(60, 140, 108);
     cursor: pointer;
 }
+

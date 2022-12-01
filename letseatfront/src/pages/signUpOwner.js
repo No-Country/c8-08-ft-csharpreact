@@ -4,15 +4,10 @@ import styles from "../styles/signUpOwner.module.css"
 import formData from "form-data"
 import axios from "axios"
 import Ad from '../components/Ad/Ad.jsx'
-import NewRestaurant from '../components/NewRestaurant/NewRestaurant'
+
 const UrlUser = "https://0548-190-2-211-112.sa.ngrok.io/api/Vendedor"
 
 export default function SignUpOwner () {
-  const [showFormNewRestaurant, setShowFormNewRestaurant] = useState(false)
-
-  function handleClick () {
-    setShowFormNewRestaurant(!showFormNewRestaurant)
-  }
 
   const [input, setInput] = useState({
     userName: "",
@@ -94,17 +89,17 @@ export default function SignUpOwner () {
                     <input className={styles.input} type="email" name="email" value={input.email} placeholder="email" onChange={(e) => handleInputChange(e)}/>
                         <input className={styles.input} type="password" name="password" value={input.password} placeholder="password" onChange={(e) => handleInputChange(e)} />
                     </div>
-                    <button className={styles.button}  onClick={handleClick}>ACCEPT AND CONTINUE</button>
+                    <button className={styles.button}>
+                      <Link to="/profile/O/:user_id" className={styles.linkButton}>
+                        ACCEPT AND CONTINUE
+                      </Link>
+                    </button>
                 </form>
                 <h5 className={styles.text}>Already a member?</h5>
                 <Link to={"/logIn"} className={styles.link}>Log In</Link>
             </div>
         </div>
-        {
-          showFormNewRestaurant
-          ? <NewRestaurant showFormNewRestaurant={showFormNewRestaurant} setShowFormNewRestaurant={setShowFormNewRestaurant} />
-          : null
-        }
+
         </section>
         </>
   )
