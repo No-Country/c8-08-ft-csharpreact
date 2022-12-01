@@ -1,14 +1,19 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
 // import { useDispatch } from "react-redux"
 import styles from "../styles/logIn.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
-// import { postLogin } from '../redux/actions'
+import Swal from "sweetalert2"
+// import { postLogIn } from '../redux/actions/index.js'
+
 import axios from "axios"
-const UrlUser = "https://81df-190-2-211-112.sa.ngrok.io/api/Login"
+const UrlUser = "http://platano-001-site1.ftempurl.com/api/Login"
+
 
 export default function LogIn () {
   // const dispatch = useDispatch()
+  const navigate = useNavigate();
+
   const [input, setInput] = useState({
     email: "",
     password: ""
@@ -24,19 +29,28 @@ export default function LogIn () {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // const input = {
-    //   e_mail: valuesInput.e_mail,
-    //   password: valuesInput.password
-    // }
-    await axios.post(UrlUser, input)
+    try {
+      await axios.post(UrlUser, input)
       .then(function (response) { console.log(response) })
-      .catch(function (err) { console.log(err) })
+      navigate("/");
+    } catch (error) {
+      console.log(error)
+      Swal.fire({
+        title: "Login Error",
+        text: "Your email or your password are not correct. Try again please!",
+        icon: "error",
+        showCancelButton: false,
+        confirmButtonColor: "#3c8c6c",
+        confirmButtonText: "Okey",
+    });
+    }
+   
+    // dispatch(postLogIn(input))
     setInput({
       email: "",
       password: ""
     })
   }
-  // dispatch(postLogin(input))
 
   return (
         <div className={ styles.container }>

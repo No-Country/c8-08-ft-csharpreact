@@ -2,8 +2,12 @@ import React from "react"
 import styles from "../styles/detail.module.css"
 import { AiFillStar } from 'react-icons/ai'
 import { BsDot } from 'react-icons/bs'
+import { useParams } from "react-router-dom"
 
 export default function Detail () {
+  let {restaurant_id} = useParams();
+  console.log(restaurant_id)
+
   return (
       <>
       <div className={ styles.container }>
