@@ -4,7 +4,7 @@ import styles from "../styles/signUp.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
 // import formData from "form-data"
 import axios from "axios"
-const UrlUser = "https://0548-190-2-211-112.sa.ngrok.io/api/Usuario"
+const UrlUser = "http://platano-001-site1.ftempurl.com/api/Customer"
 
 export default function SignUp () {
   const [input, setInput] = useState({
@@ -17,12 +17,14 @@ export default function SignUp () {
     Password: "",
     Birthday: ""
   })
-
+  var formData = new FormData(); 
+  const [img,setImg]= useState(null)
   const handleInputChange = (e) => {
     e.preventDefault()
-    // if (e.target.type === "file") {
-    //   setInput({ ...input, [e.target.name]: e.target.files[0] })
-    // }
+     if (e.target.type === "file") {
+      setImg(e.target.files[0])
+     
+    }
     setInput({
       ...input,
       [e.target.name]: e.target.value
@@ -30,8 +32,19 @@ export default function SignUp () {
   }
 
   const handleSubmit = async (e) => {
+    formData.append('UrlPhoto',img)
+    formData.append('userName',e.target.UserName.value)
+    formData.append('lastName',e.target.LastName.value)
+    formData.append('Gender',e.target.Gender.value)
+    formData.append('Phone',e.target.Phone.value)
+    formData.append('Email',e.target.Email.value)
+    formData.append('Password',e.target.Password.value)
+    formData.append('Birthday',e.target.Birthday.value)
+    for (let [key, value] of formData) {
+      console.log(`${key}: ${value}`)
+    }
     e.preventDefault()
-    await axios.post(UrlUser, input, {
+    await axios.post(UrlUser, formData, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
