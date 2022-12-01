@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
 import styles from "../styles/signUp.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
@@ -7,6 +7,8 @@ import axios from "axios"
 const UrlUser = "http://platano-001-site1.ftempurl.com/api/Customer"
 
 export default function SignUp () {
+  const navigate = useNavigate();
+
   const [input, setInput] = useState({
     UserName: "",
     LastName: "",
@@ -17,13 +19,15 @@ export default function SignUp () {
     Password: "",
     Birthday: ""
   })
+
   var formData = new FormData(); 
+
   const [img,setImg]= useState(null)
+
   const handleInputChange = (e) => {
     e.preventDefault()
      if (e.target.type === "file") {
       setImg(e.target.files[0])
-     
     }
     setInput({
       ...input,
@@ -71,6 +75,7 @@ export default function SignUp () {
       Birthday: ""
     })
     console.log(input)
+    navigate("/profile/U/:user_id");
   }
 
   return (
