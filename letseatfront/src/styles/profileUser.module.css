@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.boxPersonal {
+    width: 25%;
+    min-height: 100vh;
+    position: fixed;
+    display: flex;
+    background: url("../tools/food3.webp") no-repeat center center;
+    background-size: cover;
+}
+
+.boxInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color:  rgba(0, 0, 0, 0.768);
+}
+
+.imageProfile {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.boxPrincipal {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.boxSecondary {
+    width: 75%;
+}
+
+.text {
+    width: 500px;
+}
+
+.name, .phone, .birthday, .gender, .email {
+    color: white;
+    text-align: center;
+}
+
+.name {
+    font-size: 1.5rem;
+    margin: 20px 10px 10px 10px;
+}
+
+.phone, .address, .email, .birthday, .gender {
+    font-size: 1.2rem;
+    margin: 0px 10px 0px 10px;
+    font-weight: 400;
+}
+
+.boxButton{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonEdit, .button {
+    height: 40px;
+    border: none;
+    background-color: rgb(60, 140, 108);
+    color: white;
+}
+
+.buttonEdit {
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+    right: 70px;
+}
+
+.button {
+    margin-top: 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 150px;
+}
+
+.button:hover {
+    color: rgb(60, 140, 108);
+    background-color: rgb(39, 39, 39);
+    cursor: pointer;
+}
+
+.iconEdit {
+    height: 25px;
+    width: 25px;
+}
+
+.buttonEdit:hover {
+    color: rgb(60, 140, 108);
+    background-color: rgb(39, 39, 39);
+    cursor: pointer;
+}
+/* 
+.modal {
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+} */
