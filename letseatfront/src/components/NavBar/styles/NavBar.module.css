@@ -1,0 +1,126 @@
+.container, .containerUser {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 1px 1px rgba(121, 120, 120, 0.2);   
+    justify-content: space-between;
+    /* padding: 0 40px; */
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+}
+
+.containerUser {
+    width: 75%;
+    right: 0;
+}
+
+.boxIcon, .boxUser{
+    display: flex;
+    align-items: center;
+}
+
+.boxIcon {
+    margin-left: 40px;
+}
+
+.boxUser {
+    margin-right: 40px;
+}
+
+.boxIcon:hover {
+    color: rgb(60, 140, 108);
+    cursor: pointer;
+}
+
+.icon, .iconUser {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.iconUser:hover {
+    box-shadow: 0 0px 15px rgba(89, 88, 88, 0.2);  
+    color: rgb(60, 140, 108);
+    cursor: pointer; 
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight:500;
+}
+
+.link {
+    margin-right: 20px;
+    color: rgb(116, 112, 112);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.link:hover {
+    color: rgb(60, 140, 108);
+    font-weight: 600;
+}
+
+.boxOptionsUser {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width: 140px;
+    position: fixed;
+    top: 63px;
+    right: 40px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(55, 54, 54, 0.2);    
+    border-radius: 10px;
+    border: solid rgb(228, 223, 223) 1px;
+    padding: 10px 10px;
+    justify-content: center;
+}
+
+.optionlink {
+    height: 35px;
+    width: 100%;
+}
+
+.optionlink:hover {
+    background-color: rgba(186, 187, 187, 0.227);
+}
+
+
+.search {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-between;
+    border-radius: 20px 50px 50px 20px;
+    border: solid 1px rgb(169, 169, 169);
+    background-color: white;
+}
+
+.inputName  {
+    color: black;
+    height: 50px;
+    text-align: center;
+    width: 80%;
+    border: none;
+    background-color: transparent;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+}
+
+.iconSearch {
+    height: 50px;
+    width: 50px;
+}
+
+.iconSearch:hover {
+    color: rgb(60, 140, 108);
+    cursor: pointer; 
+}
+
