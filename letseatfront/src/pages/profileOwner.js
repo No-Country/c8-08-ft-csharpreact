@@ -22,7 +22,7 @@ export default function ProfileOwner () {
                     <h1 className={ styles.address }>Avenida Siempreviva 123</h1>
                     <button className={ styles.buttonEdit }><AiTwotoneEdit className={ styles.iconEdit } /></button>
                     {
-                showFormNewRestaurant
+                !showFormNewRestaurant
                    && <button className={ styles.button } onClick={handleClick}>NEW RESTAURANT</button>
                     }
                    </div>
@@ -30,7 +30,7 @@ export default function ProfileOwner () {
             <div className={ styles.boxPrincipal }>
             <div className={ styles.boxSecondary }>            
             {
-                !showFormNewRestaurant
+                showFormNewRestaurant
                 ? <NewRestaurant className={ styles.modal } showFormNewRestaurant={showFormNewRestaurant} setShowFormNewRestaurant={setShowFormNewRestaurant} />
                 : <Restaurants />
             }
