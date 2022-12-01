@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import styles from "./styles/Ad.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
+import { SlArrowDown } from "react-icons/sl"
 
 export default function Ad () {
   return (
@@ -12,9 +13,11 @@ export default function Ad () {
                     <h1 className={styles.textAd1}>INCREASE YOUR EARNINGS!</h1>
                     <h3 className={styles.textAd2}>You just have to put your food business in Let's Eat</h3>
                     <a href="/signUpOwner/#formSignUpOwner">
-                        <button className={styles.button}>LET'S GO!</button>
+                        {/* <button className={styles.button}>LET'S GO!</button> */}
                     </a>
                 </div>
+                <SlArrowDown className={styles.iconArrow} />
+
                 </div>
                 <div className={styles.boxIcon}>
                     <Link to={"/"} className={styles.boxLink}>
