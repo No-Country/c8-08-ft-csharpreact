@@ -37,20 +37,27 @@
     font-weight: 400;
 }
 
-.input, .button {
+.input, .button, .inputSelect {
     height: 50px;
     padding: 0px 20px;
     border-radius: 10px;
     font-size: 1rem;
 }
 
-.input {
+.input, .inputSelect{
     border: solid 1px rgb(169, 169, 169);
     background-color: white;
     color: rgb(121, 121, 121);
     margin-bottom: 8px;
-    width: 50%;
 
+}
+
+.input {
+    width: 50%;
+}
+
+.inputSelect {
+    width: 57%;
 }
 
 .text {
