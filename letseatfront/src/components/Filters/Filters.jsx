@@ -15,6 +15,7 @@ export default function Filters () {
 
   return (
         <div className={styles.container}>
+            <h1 className={styles.text1}>Estos son todos los lugares</h1>
             <div className={styles.filtros}>
                 <div className={styles.search}>
                     <input className={styles.inputName} type="text" placeholder="Restaurant Name..." />

@@ -3,7 +3,7 @@ import styles from "./styles/NavBar.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
 import { HiUserCircle } from 'react-icons/hi'
 import { Link, Outlet } from "react-router-dom";
-import Filters from "../Filters/Filters";
+// import Filters from "../Filters/Filters";
 
 export default function NavBar () {
   const [showOptions, setShowOptions] = useState(false)
@@ -26,7 +26,7 @@ export default function NavBar () {
                 <HiUserCircle className={styles.iconUser} onClick={handleClick}/>
             </div>
         </div>
-        <Filters />
+        {/* <Filters /> */}
         {
             showOptions
               ? <div className={styles.boxOptionsUser}>

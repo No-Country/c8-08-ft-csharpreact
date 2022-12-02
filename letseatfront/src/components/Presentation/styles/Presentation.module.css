@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: url("../../../tools/carousellFast.gif") no-repeat center center;
+    background-size:cover;
+
+}
+
+.boxPrincipal {
+    display: flex;
+    flex-direction: column;
+    background-color:  rgba(0, 0, 0, 0.57);
+    backdrop-filter: blur(2px);
+    min-height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* font-family: 'Allura', cursive;
+---> font-family: 'Bowlby One', cursive;
+font-family: 'Coda', cursive;
+font-family: 'Londrina Outline', cursive;
+font-family: 'Londrina Shadow', cursive;
+font-family: 'Satisfy', cursive;
+font-family: 'Sigmar One', cursive;
+font-family: 'Titan One', cursive; */
+
+.text1, .text2, .text3 {
+    color: white;
+    margin: 0px;
+
+}
+
+.text1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 7rem;
+    line-height: 6rem;
+}
+
+.text2 {
+    font-family: 'Bowlby One', cursive;
+    font-size: 17rem;
+    line-height: 15rem;
+}
+
+.text3 {
+    font-size: 2rem;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+}

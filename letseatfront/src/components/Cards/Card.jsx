@@ -6,22 +6,22 @@ import { AiFillStar } from 'react-icons/ai'
 import { Link } from "react-router-dom";
 
 export default function Card ({ restaurant }) {
-  useEffect(() => {
-    return async () => {
-      console.log(restaurant)
-  }
-}, [restaurant]);
+//   useEffect(() => {
+//     return async () => {
+//       console.log(restaurant)
+//   }
+// }, [restaurant]);
   
-  let allScore = []
+  let sumaScore = 0;
 
   restaurant.scoreBusinesses.map((el) => { 
     return (
-      allScore.push(el.score)
+      sumaScore+=(el.score)
     )
   })
 
-
-
+  let score = sumaScore/restaurant.scoreBusinesses.length
+  
   return (
     <Link to={`/detail/${restaurant.id}`}>
     <div className={styles.container}>
@@ -34,7 +34,7 @@ export default function Card ({ restaurant }) {
             <h3 className={styles.name}>{restaurant.name}</h3>
             <div className={styles.boxScore}>
                 <AiFillStar/>
-                <h5 className={styles.details}>5.0</h5>
+                <h5 className={styles.details}>{Math.trunc(score)}</h5>
             </div>
         </div>
         <h5 className={styles.details}>{restaurant.description}</h5>
