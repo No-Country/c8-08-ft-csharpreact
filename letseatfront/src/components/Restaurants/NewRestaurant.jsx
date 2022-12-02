@@ -46,8 +46,8 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
         //     'Content-Type': 'multipart/form-data'
         //   }
         // })
-          .then(function (response) { console.log(response) })
-          .catch(function (response) { console.log(response) })
+          // .then(function (response) { console.log(response) })
+          // .catch(function (response) { console.log(response) })
         setInput({
           Name: "",
           Description: "",
@@ -56,7 +56,7 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
           Adress: "",
           // Img: [],
         })
-        console.log(input)
+        // console.log(input)
       }
 
   return (

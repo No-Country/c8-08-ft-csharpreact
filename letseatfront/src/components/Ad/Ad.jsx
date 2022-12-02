@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import styles from "./styles/Ad.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
-import { SlArrowDown } from "react-icons/sl"
+import ArrowDown from "../ArrowDown/ArrowDown"
 
 export default function Ad () {
   return (
@@ -16,7 +16,7 @@ export default function Ad () {
                         {/* <button className={styles.button}>LET'S GO!</button> */}
                     </a>
                 </div>
-                <SlArrowDown className={styles.iconArrow} />
+                <ArrowDown className={styles.iconArrow} />
 
                 </div>
                 <div className={styles.boxIcon}>
