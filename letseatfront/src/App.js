@@ -15,9 +15,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<NavBar />}>
-        <Route index element={<Home />} />
-        </Route>  
+        <Route path="/" element={<Home />} />
 
         <Route path="/detail/" element={<NavBarSimple />}>
         <Route path=":restaurant_id" element={<Detail />} />
