@@ -4,9 +4,10 @@ import React, { useState } from 'react'
 import styles from "../styles/logIn.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
 import Swal from "sweetalert2"
+import HttpCliente from "../services/HttpCliente"
 // import { postLogIn } from '../redux/actions/index.js'
 
-import axios from "axios"
+//import axios from "axios"
 const UrlUser = "http://platano-001-site1.ftempurl.com/api/Login"
 
 
@@ -30,11 +31,13 @@ export default function LogIn () {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post(UrlUser, input)
-      .then(function (response) { console.log(response) })
+      HttpCliente.post(UrlUser, input)
+      .then(function (response) { 
+        window.localStorage.setItem("security_token",response.data.data);
+        console.log(response) })
       navigate("/");
     } catch (error) {
-      console.log(error)
+      console.log("error",error)
       Swal.fire({
         title: "Login Error",
         text: "Your email or your password are not correct. Try again please!",
