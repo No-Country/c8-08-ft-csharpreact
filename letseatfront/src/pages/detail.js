@@ -11,7 +11,7 @@ import Dishes from "../components/Dishes/Dishes"
 import FormScore from "../components/Score/FormScore"
 const UrlRestaurantDetail = "http://platano-001-site1.ftempurl.com/api/Business"
 
-export default function Detail () {
+export default function Detail ({ rol, singUp }) {
   let {restaurant_id} = useParams();
 
   const [detail, setDetail] = useState({
@@ -52,6 +52,7 @@ if(detail.scoreBusinesses.length !== 0) {
     score = sumaScore/allScore.length
 }
 
+const [showFormScore, setShowFormScore] = useState(false)
 const [showPhotos, setShowPhotos] = useState(false)
 
 function handleClick () {
@@ -74,7 +75,10 @@ function handleClick () {
                 </div>
               </div>
               <div className={styles.boxButton}>
-                <FormScore />
+                {
+                  rol !== 3 &&
+                  <FormScore showFormScore={showFormScore} setShowFormScore={setShowFormScore} singUp={singUp} rol={rol} />
+                }
                 {
                   showPhotos ? <button className={styles.buttonPhotos} onClick={handleClick}><IoMdPhotos className={styles.iconPhotos}/> VER MENOS FOTOS</button>
                   : <button className={styles.buttonPhotos} onClick={handleClick}><IoMdPhotos className={styles.iconPhotos}/> VER MÁS FOTOS</button>
@@ -99,7 +103,7 @@ function handleClick () {
         {
           showPhotos && <Gallery pictureBusinesses={detail.pictureBusinesses}/>
         }
-        <Dishes />
+        <Dishes singUp={singUp} rol={rol} />
 
       </div>
       </>

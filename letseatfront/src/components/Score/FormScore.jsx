@@ -2,11 +2,12 @@ import React, { useState } from "react"
 import styles from "./styles/FormScore.module.css"
 import { StarsRating } from "./StarsRating"
 import { AiOutlineStar, AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai'
+import Swal from "sweetalert2"
 
 import axios from "axios"
 const UrlNewScore = ""
 
-export default function FormScore ({ setShowFormScore, showFormScore, showFormNewComment, setShowFormNewComment }) {
+export default function FormScore ({ rol, singUp, setShowFormScore, showFormScore, showFormNewComment, setShowFormNewComment }) {
     const [score, setScore] = useState({
         value: 0
       })
@@ -23,11 +24,22 @@ export default function FormScore ({ setShowFormScore, showFormScore, showFormNe
     }
 
     function handleClick () {
-      setShowFormScore(!showFormScore)
-          if(showFormScore === true && showFormNewComment === false) {
-            setShowFormNewComment(false)}
+      if(!singUp) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops... no puedes calificar!',
+          html:
+              'Primero debes hacer' + 
+              '<a href="/logIn"> LogIn</a> ',
+          footer: '<a href="/signUp">¿Aún no tienes una cuenta?</a>',
+          confirmButtonColor: "#3c8c6c",
+        })
+      } else {
+        setShowFormScore(!showFormScore)
+        // if(showFormScore === true && showFormNewComment === false) {
+        //   setShowFormNewComment(false)}
+      }
     }
-
 
     return (
         <div className={styles.container}>

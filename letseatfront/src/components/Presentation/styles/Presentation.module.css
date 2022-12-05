@@ -10,8 +10,8 @@
 .boxPrincipal {
     display: flex;
     flex-direction: column;
-    background-color:  rgba(0, 0, 0, 0.57);
-    backdrop-filter: blur(2px);
+    background-color:  rgba(0, 0, 0, 0.857);
+    /* backdrop-filter: blur(2px); */
     min-height: 100%;
     width: 100%;
     align-items: center;

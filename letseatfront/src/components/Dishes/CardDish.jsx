@@ -5,7 +5,7 @@ import { AiFillStar } from 'react-icons/ai'
 import {GrClose} from "react-icons/gr"
 import Gallery from "../Gallery/Gallery"
 
-export default function CardDish ({ dish }) {
+export default function CardDish ({ dish, rol, singUp }) {
 //   useEffect(() => {
 //     return async () => {
 //       console.log(dish)
@@ -80,7 +80,7 @@ export default function CardDish ({ dish }) {
 
             </div>
           </div>
-          <DetailDish detailDish={detailDish} showPhotos={showPhotos} setShowPhotos={setShowPhotos} />
+          <DetailDish detailDish={detailDish} showPhotos={showPhotos} setShowPhotos={setShowPhotos} singUp={singUp} rol={rol} />
           <GrClose className={styles.iconClose} onClick={handleClick}/>
 
         </div>

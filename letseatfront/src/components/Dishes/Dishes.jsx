@@ -6,9 +6,8 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 const UrlAllDish = "http://platano-001-site1.ftempurl.com/api/Dish?idBusiness="
 
-export default function Dishes () {
+export default function Dishes ({ rol, singUp }) {
     let {restaurant_id} = useParams();
-
 
     const [allDish, setAllDish] = useState([])
 
@@ -29,7 +28,7 @@ export default function Dishes () {
             {allDish &&
             allDish.map((dish) => {
               return (
-                <CardDish dish={dish} key={dish.id}/>
+                <CardDish dish={dish} key={dish.id} singUp={singUp} rol={rol}/>
               )   
               })
             }           
