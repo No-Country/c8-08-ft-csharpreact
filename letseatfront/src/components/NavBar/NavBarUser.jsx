@@ -4,7 +4,7 @@ import { MdOutlineFoodBank } from 'react-icons/md'
 import { HiUserCircle } from 'react-icons/hi'
 import { Link, Outlet } from "react-router-dom"
 
-export default function NavBarUser () {
+export default function NavBarUser ({ rol }) {
   const [showOptions, setShowOptions] = useState(false)
 
   function handleClick () {
@@ -27,9 +27,15 @@ export default function NavBarUser () {
         {
             showOptions
               ? <div className={styles.boxOptionsUser}>
-            <Link className={styles.optionlink} to={"/profile/U/:user_id"}>NormalUser Profile</Link>
-            {/* <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link> */}
-            <Link className={styles.optionlink} to={"/"}>Log Out</Link>
+               {
+                      rol === 2 
+                      && <Link className={styles.optionlink} to={"/profile/U/:user_id"}>NormalUser Profile</Link>
+                    }
+                    {
+                      rol === 3
+                      && <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link>
+                    }
+                      <Link className={styles.optionlink} to={"/"}>Log Out</Link>
             </div>
               : null
         }

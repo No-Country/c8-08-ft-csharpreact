@@ -4,8 +4,10 @@ import {IoMdPhotos} from "react-icons/io"
 import { FaCommentDots } from 'react-icons/fa'
 import FormScore from "../Score/FormScore"
 import NewComment from "../Comments/NewComment"
+import Swal from "sweetalert2"
 
-export default function DetailDish ({ detailDish, showPhotos, setShowPhotos }) {
+
+export default function DetailDish ({ detailDish, showPhotos, setShowPhotos, rol, singUp }) {
   const [showFormNewComment, setShowFormNewComment] = useState(false)
   const [showFormScore, setShowFormScore] = useState(false)
 
@@ -14,11 +16,24 @@ export default function DetailDish ({ detailDish, showPhotos, setShowPhotos }) {
   }
 
   function handleClickComment () {
-    setShowFormNewComment(!showFormNewComment)
-    if(showFormScore === true && showFormNewComment === false) {
-      setShowFormScore(false)
+    if(!singUp) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops... no puedes comentar!',
+        html:
+            'Primero debes hacer' + 
+            '<a href="/logIn"> LogIn</a> ',
+        footer: '<a href="/signUp">¿Aún no tienes una cuenta?</a>',
+        confirmButtonColor: "#3c8c6c",
+      })
+    } else {
+      setShowFormNewComment(!showFormNewComment)
+      // if(showFormScore === true && showFormNewComment === false) {
+      //   setShowFormScore(false)
+      // }  
     }
   }
+  
 
   return (
       <>
@@ -29,10 +44,15 @@ export default function DetailDish ({ detailDish, showPhotos, setShowPhotos }) {
 
           <div className={styles.boxButton}>
             <div className={styles.boxIcon}>
-              <FormScore showFormScore={showFormScore} setShowFormScore={setShowFormScore} showFormNewComment={showFormNewComment} setShowFormNewComment={setShowFormNewComment}/>
               {
-                !showFormNewComment ? <FaCommentDots className={styles.iconComment} onClick={handleClickComment} />
-                : <NewComment dishId={detailDish.id} showFormNewComment={showFormNewComment} setShowFormNewComment={setShowFormNewComment}/>
+                  rol !== 3 &&
+                  <>
+                    <FormScore singUp={singUp} rol={rol} showFormScore={showFormScore} setShowFormScore={setShowFormScore} showFormNewComment={showFormNewComment} setShowFormNewComment={setShowFormNewComment}/>
+                    {
+                      !showFormNewComment ? <FaCommentDots className={styles.iconComment} onClick={handleClickComment} />
+                      : <NewComment dishId={detailDish.id} showFormNewComment={showFormNewComment} setShowFormNewComment={setShowFormNewComment}/>
+                    }
+                  </>
               }
             </div>
             {

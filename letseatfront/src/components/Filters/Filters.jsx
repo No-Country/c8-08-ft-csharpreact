@@ -21,7 +21,7 @@ export default function Filters () {
                     <input className={styles.inputName} type="text" placeholder="Restaurant Name..." />
                     <HiSearchCircle className={styles.iconSearch}/>
                 </div>
-                <button className={styles.buttonFilters} onClick={handleClick}><FiFilter className={styles.iconFilter}/>FILTERS</button>
+                {/* <button className={styles.buttonFilters} onClick={handleClick}><FiFilter className={styles.iconFilter}/>FILTERS</button>
                 
                 {
                     showOptions
@@ -41,7 +41,7 @@ export default function Filters () {
                 </>
                     : null
                 }
-                
+                 */}
                 
 
 
