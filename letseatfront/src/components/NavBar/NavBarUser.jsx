@@ -28,7 +28,7 @@ export default function NavBarUser () {
             showOptions
               ? <div className={styles.boxOptionsUser}>
             <Link className={styles.optionlink} to={"/profile/U/:user_id"}>NormalUser Profile</Link>
-            <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link>
+            {/* <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link> */}
             <Link className={styles.optionlink} to={"/"}>Log Out</Link>
             </div>
               : null

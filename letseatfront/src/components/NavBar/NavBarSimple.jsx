@@ -36,8 +36,8 @@ export default function NavBarSimple () {
               ? <div className={styles.boxOptionsUser}>
             <Link className={styles.optionlink} to={"/signUp"}>Sign Up</Link>
             <Link className={styles.optionlink} to={"/logIn"}>Log In</Link>
-            <Link className={styles.optionlink} to={"/profile/U/:user_id"}>NormalUser Profile</Link>
-            <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link>
+           {/*  <Link className={styles.optionlink} to={"/profile/U/:user_id"}>NormalUser Profile</Link> */}
+            {/* <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link> */}
             <Link className={styles.optionlink} to={"/"}>Log Out</Link>
             </div>
               : null
