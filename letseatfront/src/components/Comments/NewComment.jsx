@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import styles from './styles/NewComment.module.css'
-// import { IoIosCloseCircleOutline } from 'react-icons/io'
-// import { useDispatch } from 'react-redux'
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai'
 
-export default function NewComment ({setShowFormNewRestaurant, showFormNewRestaurant }) {
-    // const dispatch = useDispatch()
 
-    function handleClick () {
-        setShowFormNewRestaurant(!showFormNewRestaurant)
+export default function NewComment ({dishId, setShowFormNewComment, showFormNewComment }) {
+
+      function handleClickComment () {
+        setShowFormNewComment(!showFormNewComment)
       }
 
       const [input, setInput] = useState({
-        comment: "",
-        score: 0,
-    })
+        description: "",
+        dishId: dishId,
+      })
     
       const handleInputChange = (e) => {
         e.preventDefault()
@@ -39,33 +38,24 @@ export default function NewComment ({setShowFormNewRestaurant, showFormNewRestau
         //     'Content-Type': 'multipart/form-data'
         //   }
         // })
-          .then(function (response) { console.log(response) })
-          .catch(function (response) { console.log(response) })
+          // .then(function (response) { console.log(response) })
+          // .catch(function (response) { console.log(response) })
         setInput({
-          comment: "",
-          score: 0,
-        })
+          description: "",
+          dishId: 0,
+          })
         console.log(input)
       }
 
   return (
     <div className={ styles.container }>
-        <div className={ styles.boxForm }>
-       {/* <IoIosCloseCircleOutline className={styles.iconClose} onClick={handleClick} /> */}
-
-        <h1 className={styles.mainTitle}>New Comment!</h1>
-                <h3 className={styles.secondaryTitle}>How was your experience in this restaurant/local?</h3>
-                <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
-                    <div className={styles.secondaryBox}>
-                        <textarea className={styles.inputTextarea} type="text" name="comment" value={input.comment} placeholder="Tell us" onChange={(e) => handleInputChange(e)}/>
-                    </div>
-                    <div className={styles.secondaryBox}>
-                        <input className={styles.input} type="number" name="score" value={input.score} onChange={(e) => handleInputChange(e)}/>
-                    </div>
-                    <button className={styles.button}>SEND</button>
-                    <button className={styles.buttonCancel} onClick={handleClick}>CANCEL</button>
-                </form>
-        </div>
+        <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
+            <textarea className={styles.inputTextarea} type="text" name="comment" value={input.comment} placeholder="Tell us" onChange={(e) => handleInputChange(e)}/>
+            <div className={ styles.boxIcon }> 
+                <AiFillCheckCircle className={styles.icon} />
+                <AiFillCloseCircle className={styles.icon} onClick={handleClickComment}/>
+            </div>
+        </form>
     </div>
   )
 }
