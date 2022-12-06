@@ -36,7 +36,7 @@ function App() {
       
 
       cargarUser();
-
+   
   },[]);
 console.log("user-rol",rol)
 console.log(singUp)
