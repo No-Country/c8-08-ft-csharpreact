@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import MiniCardDish from "./MiniCardDish";
 import styles from "./styles/ListDishes.module.css"
 import HttpCliente from "../../services/HttpCliente";
-import axios from "axios"
 const UrlAllDish = "/Dish?idBusiness="
 
 export default function ListDishes ({ restaurant_id, setShow, show }) {

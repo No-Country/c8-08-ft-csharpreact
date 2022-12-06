@@ -4,12 +4,12 @@ import { AiTwotoneEdit, AiOutlineDelete } from 'react-icons/ai'
 import Swal from "sweetalert2"
 
 import axios from "axios"
-const UrlDeleteRestaurant = "https://lets-eat.somee.com/api/Business/Delecte/"
+const UrlDeleteRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/Delecte/"
 
 
 export default function MiniCardDish ({dish, setShow, setRestaurantId}) {
 
-    function handleClickEditRestaurant () {
+    function handleClickEditDish () {
     setShow("editRestaurant")
     setRestaurantId(dish.id)
     }
@@ -40,7 +40,7 @@ export default function MiniCardDish ({dish, setShow, setRestaurantId}) {
         <div className={styles.container}>
             <h1 className={ styles.text }>{dish.name}</h1>
             <div className={styles.boxIcons}>
-                <button className={ styles.buttonIcon } onClick={handleClickEditRestaurant}>
+                <button className={ styles.buttonIcon } onClick={handleClickEditDish}>
                     <AiTwotoneEdit className={ styles.icon } />
                 </button>
                 <button className={ styles.buttonIcon }>
