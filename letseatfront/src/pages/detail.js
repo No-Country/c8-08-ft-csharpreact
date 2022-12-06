@@ -9,7 +9,7 @@ import axios from "axios"
 import Gallery from "../components/Gallery/Gallery"
 import Dishes from "../components/Dishes/Dishes"
 import FormScore from "../components/Score/FormScore"
-const UrlRestaurantDetail = "http://platano-001-site1.ftempurl.com/api/Business"
+const UrlRestaurantDetail = "https://lets-eat.somee.com/api/Business"
 
 export default function Detail ({ rol, singUp }) {
   let {restaurant_id} = useParams();

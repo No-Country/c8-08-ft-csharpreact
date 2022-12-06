@@ -7,7 +7,7 @@ import Swal from "sweetalert2"
 
 import axios from "axios"
 import ListDishes from "../Dishes/ListDishes"
-const UrlDeleteRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/Delecte/"
+const UrlDeleteRestaurant = "https://lets-eat.somee.com/api/Business/Delecte/"
 
 
 export default function CardRestaurant ({num, setShow, setRestaurantId}) {

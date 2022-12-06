@@ -1,5 +1,5 @@
 import axios from 'axios';
- axios.defaults.baseURL ='http://platano-001-site1.ftempurl.com/api';
+ axios.defaults.baseURL ='https://lets-eat.somee.com/api';
 
 axios.interceptors.request.use((config)=>{
     const token = window.localStorage.getItem('security_token');

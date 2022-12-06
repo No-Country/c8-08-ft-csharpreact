@@ -4,7 +4,7 @@ import { AiTwotoneEdit, AiOutlineDelete } from 'react-icons/ai'
 import Swal from "sweetalert2"
 
 import axios from "axios"
-const UrlDeleteRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/Delecte/"
+const UrlDeleteRestaurant = "https://lets-eat.somee.com/api/Business/Delecte/"
 
 
 export default function MiniCardDish ({dish, setShow, setRestaurantId}) {

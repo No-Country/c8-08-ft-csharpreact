@@ -3,7 +3,7 @@ import styles from './styles/NewDish.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlNewDish = "http://platano-001-site1.ftempurl.com/api/Dish"
+const UrlNewDish = "https://lets-eat.somee.com/api/Dish"
 
 export default function NewDish ({setShow, restaurantId }) {
 

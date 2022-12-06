@@ -16,6 +16,7 @@ export default function Cards () {
 
   useEffect(() => {
     // dispatch(getAllRestaurants());
+    
     try {
       return async () => {
         await axios.get(UrlAllRestaurant)
@@ -27,16 +28,17 @@ export default function Cards () {
       }
     }catch (erro){ console.log(erro); }
 }, []);
-
+  console.log("state",allRestaurants);
   return (
         <div className={styles.container}>
-          {allRestaurants &&
-          allRestaurants.map((restaurant) => {
-            return (
-              <Card restaurant={restaurant} key={restaurant.id} />
-            )   
-            })
-          }           
+          {
+            allRestaurants.map((restaurant) => {
+              return (
+                <Card restaurant={restaurant} key={restaurant.id} />
+              )   
+              })
+          }
+          <h1>holasdfd</h1>         
         </div>
   )
 }
