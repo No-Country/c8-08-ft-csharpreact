@@ -12,6 +12,9 @@ export default function NavBar ({ rol, singUp }) {
     setShowOptions(!showOptions)
   }
 
+  function logOut(){
+    localStorage.removeItem('security_token');
+  }
   return (
         <>
         <div className={styles.container}>
@@ -43,7 +46,7 @@ export default function NavBar ({ rol, singUp }) {
                       rol === 3
                       && <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link>
                     }
-                      <Link className={styles.optionlink} to={"/"}>Log Out</Link>
+                      <Link className={styles.optionlink} onClick={logOut} to={"/"}>Log Out</Link>
                   </>
                   :
                   <>

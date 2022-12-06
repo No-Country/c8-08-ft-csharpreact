@@ -6,7 +6,7 @@ import Card from "../Cards/Card.jsx"
 
 import axios from "axios"
 import { useState } from "react";
-const UrlAllRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/allBusines?PageNumber=1&PageSize=5"
+const UrlAllRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/allBusines?PageNumber=1&PageSize=10"
 
 
 export default function Cards () {
