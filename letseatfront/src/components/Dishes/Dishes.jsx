@@ -11,16 +11,15 @@ export default function Dishes ({ rol, singUp }) {
     const [allDish, setAllDish] = useState([])
 
     useEffect(() => {
-      return async () => {
         HttpCliente.get(`${UrlAllDish}${restaurant_id}`)
         .then((response) => {
           setAllDish(response.data.data);
           console.log("respuesta dish",response.data.data);
         },err=>{console.error(err)})
         // console.log(allDish)
-    }
   }, [restaurant_id]);
   
+        console.log(allDish)
 
     return (
         <div className={styles.container}>
