@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react"
 import CardDish from "./CardDish"
 import styles from "./styles/Dishes.module.css"
-
-import axios from "axios"
+import HttpCliente from "../../services/HttpCliente";
 import { useParams } from "react-router-dom"
-const UrlAllDish = "https://lets-eat.somee.com/api/Dish?idBusiness="
+const UrlAllDish = "/Dish?idBusiness="
 
 export default function Dishes ({ rol, singUp }) {
     let {restaurant_id} = useParams();
@@ -12,10 +11,12 @@ export default function Dishes ({ rol, singUp }) {
     const [allDish, setAllDish] = useState([])
 
     useEffect(() => {
-      // dispatch(getAllRestaurants());
       return async () => {
-        await axios.get(`${UrlAllDish}${restaurant_id}`)
-        .then((response) => setAllDish(response.data.data))
+        HttpCliente.get(`${UrlAllDish}${restaurant_id}`)
+        .then((response) => {
+          setAllDish(response.data.data);
+          console.log("respuesta dish",response.data.data);
+        },err=>{console.error(err)})
         // console.log(allDish)
     }
   }, [restaurant_id]);

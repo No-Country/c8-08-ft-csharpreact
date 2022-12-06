@@ -5,9 +5,9 @@ import { ImSpoonKnife } from "react-icons/im"
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"
 import Swal from "sweetalert2"
 
-import axios from "axios"
+import HttpCliente from "../../services/HttpCliente";
 import ListDishes from "../Dishes/ListDishes"
-const UrlDeleteRestaurant = "https://lets-eat.somee.com/api/Business/Delecte/"
+const UrlDeleteRestaurant = "/Business/Delecte/"
 
 
 export default function CardRestaurant ({num, setShow, setRestaurantId}) {
@@ -40,15 +40,18 @@ export default function CardRestaurant ({num, setShow, setRestaurantId}) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            axios.delete(`${UrlDeleteRestaurant}${num.id}`)
-        Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success',
-        )
-        }
-    })
+            HttpCliente.delete(`${UrlDeleteRestaurant}${num.id}`)
+            .then((response) => {
+                console.log(response.data.data);
+    },err=>{console.error(err)})
+    Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success',
+        ) 
     }
+})
+}
 
     return (
         <div className={styles.container}>

@@ -5,11 +5,12 @@ import { BsDot } from 'react-icons/bs'
 import { useParams } from "react-router-dom"
 import {IoMdPhotos} from "react-icons/io"
 
-import axios from "axios"
 import Gallery from "../components/Gallery/Gallery"
 import Dishes from "../components/Dishes/Dishes"
 import FormScore from "../components/Score/FormScore"
-const UrlRestaurantDetail = "https://lets-eat.somee.com/api/Business"
+
+import HttpCliente from "../services/HttpCliente";
+const UrlRestaurantDetail = "/Business"
 
 export default function Detail ({ rol, singUp }) {
   let {restaurant_id} = useParams();
@@ -28,13 +29,12 @@ export default function Detail ({ rol, singUp }) {
 
 try {
   useEffect(() => {
-    return async () => {
-      await axios.get(`${UrlRestaurantDetail}/${restaurant_id}`)
-      .then((response) => setDetail(response.data.data));
-       console.log(detail)
-  }
-  },[]);
-
+      HttpCliente.get(`${UrlRestaurantDetail}/${restaurant_id}`)
+        .then((response) => {
+          setDetail(response.data.data);
+          console.log("respuesta detail",response.data.data);
+        },err=>{console.error(err)})
+  }, [restaurant_id]);
 } catch (error) {
   console.log(error)
 }
