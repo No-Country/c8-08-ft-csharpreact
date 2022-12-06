@@ -16,10 +16,12 @@ export default function Cards () {
 
   useEffect(() => {
     // dispatch(getAllRestaurants());
-    HttpCliente.get('/Business/allBusines?PageNumber=1&PageSize=50').then(response=>{
-      console.log("busines",response);
-      setAllRestaurants(response.data.data);
-  },err=>{console.error(err)})
+    
+      HttpCliente.get('/Business/allBusines?PageNumber=1&PageSize=50').then(response=>{
+        console.log("busines",response);
+        setAllRestaurants(response.data.data);
+    },err=>{console.error(err)})
+  
     
 }, []);
   console.log("state",allRestaurants);

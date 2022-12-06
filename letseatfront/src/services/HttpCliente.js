@@ -12,11 +12,11 @@ axios.interceptors.request.use((config)=>{
     return Promise.reject(err);
 });
 
-const  requestGenerico ={
-    get :  (url) =>  axios.get(url),
-    post : (url,body) => axios.post(url,body),
-    put : (url,body) => axios.put(url,body),
-    delete : (url) => axios.delete(url)
+const  requestGenerico =  {
+    get :  async (url) =>  await axios.get(url),
+    post : async (url,body) => await axios.post(url,body),
+    put : async (url,body) =>  await axios.put(url,body),
+    delete :async (url) => await axios.delete(url)
 };
 
 export default requestGenerico;
