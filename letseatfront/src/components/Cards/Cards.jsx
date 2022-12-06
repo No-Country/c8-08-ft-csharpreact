@@ -16,10 +16,16 @@ export default function Cards () {
 
   useEffect(() => {
     // dispatch(getAllRestaurants());
-    return async () => {
-      await axios.get(UrlAllRestaurant)
-      .then((response) => setAllRestaurants(response.data.data))
-  }
+    try {
+      return async () => {
+        await axios.get(UrlAllRestaurant)
+        .then((response) => {
+          console.log(response.data);
+          setAllRestaurants(response.data.data)
+        }
+        )
+      }
+    }catch (erro){ console.log(erro); }
 }, []);
 
   return (
