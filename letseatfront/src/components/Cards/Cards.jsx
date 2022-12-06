@@ -20,7 +20,7 @@ export default function Cards () {
       return async () => {
         await axios.get(UrlAllRestaurant)
         .then((response) => {
-          console.log(response.data);
+          console.log("respuesta card",response.data);
           setAllRestaurants(response.data.data)
         }
         )
