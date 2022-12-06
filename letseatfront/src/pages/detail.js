@@ -31,9 +31,9 @@ try {
     return async () => {
       await axios.get(`${UrlRestaurantDetail}/${restaurant_id}`)
       .then((response) => setDetail(response.data.data));
-      // console.log(detail)
+       console.log(detail)
   }
-  });
+  },[]);
 
 } catch (error) {
   console.log(error)
