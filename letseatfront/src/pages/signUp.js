@@ -4,7 +4,7 @@ import styles from "../styles/signUp.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
 // import formData from "form-data"
 import axios from "axios"
-const UrlUser = "http://platano-001-site1.ftempurl.com/api/Customer"
+const UrlUser = "https://lets-eat.somee.com/api/Customer"
 
 export default function SignUp () {
   const navigate = useNavigate();

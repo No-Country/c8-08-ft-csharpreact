@@ -4,7 +4,7 @@ import styles from "./styles/Dishes.module.css"
 
 import axios from "axios"
 import { useParams } from "react-router-dom"
-const UrlAllDish = "http://platano-001-site1.ftempurl.com/api/Dish?idBusiness="
+const UrlAllDish = "https://lets-eat.somee.com/api/Dish?idBusiness="
 
 export default function Dishes ({ rol, singUp }) {
     let {restaurant_id} = useParams();

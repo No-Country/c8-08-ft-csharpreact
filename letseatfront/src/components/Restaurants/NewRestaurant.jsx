@@ -3,7 +3,7 @@ import styles from './styles/NewRestaurant.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlNewRestaurant = "http://platano-001-site1.ftempurl.com/api/Business"
+const UrlNewRestaurant = "https://lets-eat.somee.com/api/Business"
 
 export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRestaurant, OwnerId }) {
 
