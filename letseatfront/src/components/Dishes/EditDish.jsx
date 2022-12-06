@@ -3,7 +3,7 @@ import styles from './styles/NewDish.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlEditRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/update/"
+const UrlEditRestaurant = "https://lets-eat.somee.com/api/Business/update/"
 
 export default function EditDish ({setShow, OwnerId, restaurantId }) {
 

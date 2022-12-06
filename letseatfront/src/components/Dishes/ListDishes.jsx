@@ -11,7 +11,10 @@ export default function ListDishes ({ restaurant_id, setShow, show }) {
     useEffect(() => {
       return async () => {
         await axios.get(`${UrlAllDish}${restaurant_id}`)
-        .then((response) => setAllDish(response.data.data))
+        .then((response) => {
+          setAllDish(response.data.data);
+          console.log("respuesta dish",response.data.data);
+        })
     }
   }, [restaurant_id, ]);
  
