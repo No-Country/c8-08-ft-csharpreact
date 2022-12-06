@@ -37,6 +37,17 @@
 
 .details {
     margin: 0px;
+    height: 40px;
+    width: 300px;
+    color: rgb(116, 112, 112);
+    font-size: 1rem;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.score {
+    margin: 0px;
     color: rgb(116, 112, 112);
     font-size: 1rem;
     font-weight: 400;

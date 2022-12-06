@@ -3,10 +3,7 @@ import styles from '../styles/profileUser.module.css'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import Comments from "../components/Comments/Comments";
 import HttpCliente from "../services/HttpCliente"
-
-
-
-
+import EditUserPerfil from "../components/UserPerfil/EditUserPerfil";
 
 export default function ProfileUser () {
     const [user,setUser] = useState({
@@ -17,10 +14,9 @@ export default function ProfileUser () {
         gender: '',
         urlPhoto: '',
         birthday: '',
-
+        id: "",
     });
-
-   
+ 
     useEffect(()=>{
        
            HttpCliente.get('/User/ByUser').then(response=>{
@@ -29,7 +25,13 @@ export default function ProfileUser () {
             },err=>{  console.log("errr",err);  })
             
     },[])
+
+    const [show, setShow] = useState(true) 
    
+    function handleClickEditPerfil () {
+        setShow(!show)
+      }
+
     
     return (
         <div className={ styles.container }>
@@ -41,12 +43,17 @@ export default function ProfileUser () {
                     <h1 className={ styles.phone }>Phone: {user.phone}</h1>
                     <h1 className={ styles.gender }>Gender: {user.gender}</h1>
                     <h1 className={ styles.birthday }>Birthday:{user.birthday.slice(0,10)}</h1>
-                    <button className={ styles.buttonEdit }><AiTwotoneEdit className={ styles.iconEdit } /></button>
+                    <button className={ styles.buttonEdit } onClick={handleClickEditPerfil}><AiTwotoneEdit className={ styles.iconEdit } /></button>
                    </div>
             </div>
             <div className={ styles.boxPrincipal }>
-            <div className={ styles.boxSecondary }>            
-                <Comments /> 
+            <div className={ styles.boxSecondary }>   
+                {
+                    !show ?
+                    <EditUserPerfil setShow={setShow} show={show} userId={user.id}/>
+                    :
+                    <Comments /> 
+                }         
             </div>
             </div>
         </div>

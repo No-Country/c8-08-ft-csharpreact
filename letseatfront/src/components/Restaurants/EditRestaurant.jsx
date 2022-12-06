@@ -3,12 +3,12 @@ import styles from './styles/NewRestaurant.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlNewRestaurant = "http://platano-001-site1.ftempurl.com/api/Business"
+const UrlEditRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/update/"
 
-export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRestaurant, OwnerId }) {
+export default function EditRestaurant ({setShow, OwnerId, restaurantId }) {
 
     function handleClick () {
-        setShowFormNewRestaurant(!showFormNewRestaurant)
+        setShow("restaurantList")
       }
 
       const [input, setInput] = useState({
@@ -47,12 +47,12 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
         //   console.log(`${key}: ${value}`)
         // }
         e.preventDefault()
-        await axios.post(UrlNewRestaurant, formData, {
+        await axios.put(`${UrlEditRestaurant}${restaurantId}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
         })
-          // .then(function (response) { console.log(response) })
+          .then(function (response) { console.log(response) })
           .catch(function (response) { console.log(response) })
         setInput({
           Name: "",
@@ -63,10 +63,10 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
           SellerId: 0
           // Img: [],
           })
-        setShowFormNewRestaurant(!showFormNewRestaurant)
+        setShow("restaurantList")
         Swal.fire({
           title:'Buen trabajo!',
-          text:'Nuevo restaurante creado exitosamente!',
+          text:'Cambios guardados exitosamente!',
           confirmButtonColor: "#3c8c6c",}
         )
 
@@ -78,8 +78,8 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
         <div className={ styles.boxForm }>
        {/* <IoIosCloseCircleOutline className={styles.iconClose} onClick={handleClick} /> */}
 
-        <h1 className={styles.mainTitle}>Crear nuevo restaurante</h1>
-                <h3 className={styles.secondaryTitle}>Coloca toda la información sobre tu negocio</h3>
+        <h1 className={styles.mainTitle}>Editar restaurante</h1>
+                <h3 className={styles.secondaryTitle}>Modifica la información que mostraras</h3>
                 <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
                     <div className={styles.secondaryBox}>
                         <input className={styles.input} type="text" name="Name" value={input.Name} placeholder="Nombre" onChange={(e) => handleInputChange(e)}/>
@@ -93,7 +93,7 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
                     <div className={styles.secondaryBox}>
                         <textarea className={styles.inputTextarea} type="text" name="Description" value={input.Description} placeholder="Descripción" onChange={(e) => handleInputChange(e)}/>
                     </div>
-                    <button className={styles.button}>CREAR</button>
+                    <button className={styles.button}>GUARDAR CAMBIOS</button>
                     <button className={styles.buttonCancel} onClick={handleClick}>CANCELAR</button>
                 </form>
 

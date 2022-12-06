@@ -26,7 +26,7 @@ function App() {
         try{
           if(token!=null){
           HttpCliente.get("User/ByUser").then(response =>{
-            console.log("respuesta app",response);
+            // console.log("respuesta app",response);
             setInputRol(response.data.data);
           })}
         }catch (error){
@@ -38,9 +38,9 @@ function App() {
       cargarUser();
    
   },[]);
-console.log("user-rol",rol)
-console.log(singUp)
-console.log(rol.user.roleId)
+// console.log("user-rol",rol)
+// console.log(singUp)
+// console.log(rol.user.roleId)
  
 return (
   <Routes>
@@ -51,13 +51,13 @@ return (
     {
       singUp === false ?
       <>
-        <Route path="logIn" element={<LogIn />} />
+        <Route path="logIn" element={<LogIn singUp={singUp} rol={rol.user.roleId}/>} />
         <Route path="signUp" element={<SignUp />} />
         <Route path="signUpOwner" element={<SignUpOwner />} />
       </>
       :
       <>
-        <Route path="/profile/" element={<NavBarUser rol={rol.user.roleId} />}>
+        <Route path="/profile/" element={<NavBarUser rol={rol.user.roleId}  />}>
         {
           rol.user.roleId === 2 &&
               <Route path="U/:user_id" element={<ProfileUser />} />

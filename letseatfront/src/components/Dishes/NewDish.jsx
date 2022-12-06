@@ -1,22 +1,20 @@
 import React, { useState } from 'react'
-import styles from './styles/NewRestaurant.module.css'
+import styles from './styles/NewDish.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlNewRestaurant = "http://platano-001-site1.ftempurl.com/api/Business"
+const UrlNewDish = "http://platano-001-site1.ftempurl.com/api/Dish"
 
-export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRestaurant, OwnerId }) {
+export default function NewDish ({setShow, restaurantId }) {
 
     function handleClick () {
-        setShowFormNewRestaurant(!showFormNewRestaurant)
+      setShow("restaurantList")
       }
 
       const [input, setInput] = useState({
         Name: "",
         Description: "",
-        Dpart: "",
-        Mund: "",
-        Adress: "",
+        Prece: "",
         // Img: [],
       })
 
@@ -26,9 +24,16 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
     
       const handleInputChange = (e) => {
         e.preventDefault()
+        if (e.target.name === "Prece") {
+          setInput({
+            ...input,
+            [e.target.name]: e.target.value
+          })
+          }
         if (e.target.type === "file") {
           setImg(e.target.files[0])
         }
+
         setInput({
           ...input,
           [e.target.name]: e.target.value
@@ -36,18 +41,15 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
       }
     
       const handleSubmit = async (e) => {
-        formData.append('Img',img)
+        formData.append('img',img)
         formData.append('Name',e.target.Name.value)
-        formData.append('Description',e.target.Description.value)
-        formData.append('Dpart',e.target.Dpart.value)
-        formData.append('Mund',e.target.Mund.value)
-        formData.append('Adress',e.target.Adress.value)
-        formData.append('SellerId', OwnerId)
+        formData.append('Prece',e.target.Prece.value)
+        formData.append('BusinessId', restaurantId)
         // for (let [key, value] of formData) {
         //   console.log(`${key}: ${value}`)
         // }
         e.preventDefault()
-        await axios.post(UrlNewRestaurant, formData, {
+        await axios.post(UrlNewDish, formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -57,16 +59,13 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
         setInput({
           Name: "",
           Description: "",
-          Dpart: "",
-          Mund: "",
-          Adress: "",
-          SellerId: 0
-          // Img: [],
+          Prece: "",
+            // Img: [],
           })
-        setShowFormNewRestaurant(!showFormNewRestaurant)
+          setShow("formNewDish")
         Swal.fire({
           title:'Buen trabajo!',
-          text:'Nuevo restaurante creado exitosamente!',
+          text:'Nuevo platillo creado exitosamente!',
           confirmButtonColor: "#3c8c6c",}
         )
 
@@ -78,17 +77,15 @@ export default function NewRestaurant ({setShowFormNewRestaurant, showFormNewRes
         <div className={ styles.boxForm }>
        {/* <IoIosCloseCircleOutline className={styles.iconClose} onClick={handleClick} /> */}
 
-        <h1 className={styles.mainTitle}>Crear nuevo restaurante</h1>
-                <h3 className={styles.secondaryTitle}>Coloca toda la información sobre tu negocio</h3>
+        <h1 className={styles.mainTitle}>Crear nuevo platillo para el menú</h1>
+                <h3 className={styles.secondaryTitle}>Coloca toda la información sobre tu platillo</h3>
                 <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
                     <div className={styles.secondaryBox}>
-                        <input className={styles.input} type="text" name="Name" value={input.Name} placeholder="Nombre" onChange={(e) => handleInputChange(e)}/>
-                        <input className={styles.input} accept="image/*" type="file" name="urlPhoto" value={input.urlPhoto} onChange={(e) => handleInputChange(e)}/>
+                        <input className={styles.inputName} type="text" name="Name" value={input.Name} placeholder="Nombre" onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className={styles.secondaryBox}>
-                        <input className={styles.input} type="text" name="Adress" value={input.Adress} placeholder="Dirección" onChange={(e) => handleInputChange(e)}/>
-                        <input className={styles.input} type="text" name="Mund" value={input.Mund} placeholder="Municipio" onChange={(e) => handleInputChange(e)}/>
-                        <input className={styles.input} type="text" name="Dpart" value={input.Dpart} placeholder="Departamento" onChange={(e) => handleInputChange(e)}/>
+                        <input className={styles.input} type="text" name="Prece" value={input.Prece} placeholder="Precio" onChange={(e) => handleInputChange(e)}/>
+                        <input className={styles.input} accept="image/*" type="file" name="urlPhoto" value={input.urlPhoto} onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className={styles.secondaryBox}>
                         <textarea className={styles.inputTextarea} type="text" name="Description" value={input.Description} placeholder="Descripción" onChange={(e) => handleInputChange(e)}/>
