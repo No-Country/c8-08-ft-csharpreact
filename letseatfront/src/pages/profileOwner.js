@@ -12,21 +12,25 @@ export default function ProfileOwner () {
         phone: '',
         gender: '',
         urlPhoto: '',
-        birthday: '',
-
+        adress: '',
+        id: 0
     });
     useEffect(()=>{
        
            HttpCliente.get('/User/ByUser').then(response=>{
-                console.log(response);
                 setUser(response.data.data);
             },err=>{  console.log("errr",err);  })
-            
     },[])
+
   const [showFormNewRestaurant, setShowFormNewRestaurant] = useState(false)
+  const [show, setShow] = useState("restaurantList") //formNewDish -- editRestaurant -- editPerfil
 
   function handleClick () {
     setShowFormNewRestaurant(!showFormNewRestaurant)
+  }
+
+  function handleClickEditar () {
+    setShow("editPerfil")
   }
 
     return (
@@ -36,12 +40,12 @@ export default function ProfileOwner () {
                     <img className={ styles.imageProfile } src={user.urlPhoto} alt="profileImg"/>
                     <h1 className={ styles.name }>{user.userName} {user.lastName} </h1>
                     <h1 className={ styles.email }>{user.user.email}</h1>
-                    <h1 className={ styles.phone }>Phone: {user.phone}</h1>
-                    <h1 className={ styles.address }>direccion</h1>
-                    <button className={ styles.buttonEdit }><AiTwotoneEdit className={ styles.iconEdit } /></button>
+                    <h1 className={ styles.phone }>Teléfono: {user.phone}</h1>
+                    <h1 className={ styles.address }>Dirección: {user.adress}</h1>
+                    <button className={ styles.buttonEdit } onClick={handleClickEditar}><AiTwotoneEdit className={ styles.iconEdit } /></button>
                     {
                 !showFormNewRestaurant
-                   && <button className={ styles.button } onClick={handleClick}>NEW RESTAURANT</button>
+                   && <button className={ styles.button } onClick={handleClick}>NUEVO RESTAURANTE</button>
                     }
                    </div>
             </div>
@@ -49,8 +53,8 @@ export default function ProfileOwner () {
             <div className={ styles.boxSecondary }>            
             {
                 showFormNewRestaurant
-                ? <NewRestaurant className={ styles.modal } showFormNewRestaurant={showFormNewRestaurant} setShowFormNewRestaurant={setShowFormNewRestaurant} />
-                : <Restaurants />
+                ? <NewRestaurant className={ styles.modal } showFormNewRestaurant={showFormNewRestaurant} setShowFormNewRestaurant={setShowFormNewRestaurant} OwnerId={user.id} />
+                : <Restaurants OwnerId={user.id} setShow={setShow} show={show}/>
             }
                 
                 </div>
