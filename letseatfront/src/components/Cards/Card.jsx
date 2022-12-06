@@ -34,7 +34,7 @@ export default function Card ({ restaurant }) {
             <h3 className={styles.name}>{restaurant.name}</h3>
             <div className={styles.boxScore}>
                 <AiFillStar/>
-                <h5 className={styles.details}>{Math.trunc(score)}</h5>
+                <h5 className={styles.score}>{Math.trunc(score)}</h5>
             </div>
         </div>
         <h5 className={styles.details}>{restaurant.description}</h5>
