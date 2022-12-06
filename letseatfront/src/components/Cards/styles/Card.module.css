@@ -2,14 +2,15 @@
     height: 380px;
     width: 300px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
 }
 
 .picture {
     height: 285px;
     width: 300px;
     background-color: rgb(60, 140, 108);
-    margin-top: 0px;
+    margin: 0px 0px 15px 0px;
     border-radius: 15px;
     display: flex;
     justify-content: flex-end;
@@ -26,7 +27,6 @@
     display: flex;
     gap: 5px;
     align-items: center;
-
 }
 
 .name {
@@ -36,6 +36,17 @@
 }
 
 .details {
+    margin: 0px;
+    height: 40px;
+    width: 300px;
+    color: rgb(116, 112, 112);
+    font-size: 1rem;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.score {
     margin: 0px;
     color: rgb(116, 112, 112);
     font-size: 1rem;

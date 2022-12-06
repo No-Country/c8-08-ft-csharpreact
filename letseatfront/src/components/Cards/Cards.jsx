@@ -6,7 +6,7 @@ import Card from "../Cards/Card.jsx"
 
 import axios from "axios"
 import { useState } from "react";
-const UrlAllRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/allBusines?PageNumber=1&PageSize=5"
+const UrlAllRestaurant = "https://lets-eat.somee.com/api/Business/allBusines?PageNumber=1&PageSize=50"
 
 
 export default function Cards () {
@@ -16,10 +16,16 @@ export default function Cards () {
 
   useEffect(() => {
     // dispatch(getAllRestaurants());
-    return async () => {
-      await axios.get(UrlAllRestaurant)
-      .then((response) => setAllRestaurants(response.data.data))
-  }
+    try {
+      return async () => {
+        await axios.get(UrlAllRestaurant)
+        .then((response) => {
+          console.log("respuesta card",response.data);
+          setAllRestaurants(response.data.data)
+        }
+        )
+      }
+    }catch (erro){ console.log(erro); }
 }, []);
 
   return (

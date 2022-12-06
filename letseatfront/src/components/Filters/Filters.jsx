@@ -15,12 +15,13 @@ export default function Filters () {
 
   return (
         <div className={styles.container}>
+            <h1 className={styles.text1}>Estos son todos los lugares</h1>
             <div className={styles.filtros}>
                 <div className={styles.search}>
                     <input className={styles.inputName} type="text" placeholder="Restaurant Name..." />
                     <HiSearchCircle className={styles.iconSearch}/>
                 </div>
-                <button className={styles.buttonFilters} onClick={handleClick}><FiFilter className={styles.iconFilter}/>FILTERS</button>
+                {/* <button className={styles.buttonFilters} onClick={handleClick}><FiFilter className={styles.iconFilter}/>FILTERS</button>
                 
                 {
                     showOptions
@@ -40,7 +41,7 @@ export default function Filters () {
                 </>
                     : null
                 }
-                
+                 */}
                 
 
 

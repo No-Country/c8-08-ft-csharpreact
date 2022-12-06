@@ -1,0 +1,54 @@
+.container {
+    height: 50px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.iconStar {
+    height: 55px;
+    width: 55px;
+    color: rgb(60, 140, 108);
+    animation: agitar 0.5s infinite;
+    animation-direction: alternate;
+    animation-timing-function:steps(4);
+}
+
+@keyframes agitar {
+    from{
+        transform: rotateZ(-10deg);
+    }
+    to{
+        transform: rotateZ(10deg);
+    }
+}
+
+.iconStar:hover {
+    cursor: pointer;
+    color: rgb(47, 232, 158);    
+}
+
+.form {
+    display: flex;
+    width:fit-content;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.boxIcon {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    height: 35px;
+    width: 35px;
+    color: rgb(60, 140, 108);
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: rgb(155, 146, 146);
+}

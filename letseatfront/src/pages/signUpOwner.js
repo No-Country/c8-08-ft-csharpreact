@@ -5,7 +5,7 @@ import styles from "../styles/signUpOwner.module.css"
 import axios from "axios"
 import Ad from '../components/Ad/Ad.jsx'
 
-const UrlUser = "http://platano-001-site1.ftempurl.com/api/Vendedor"
+const UrlUser = "http://platano-001-site1.ftempurl.com/api/Seller"
 
 export default function SignUpOwner () {
   const navigate = useNavigate();
@@ -93,7 +93,7 @@ export default function SignUpOwner () {
                         <input className={styles.input} type="text" name="LastName" value={input.LastName} placeholder="Last name" onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className={styles.secondaryBox}>
-                    <select className={styles.input} name='Gender' onChange={(e) => handleInputChange(e)}>
+                    <select className={styles.inputSelect} name='Gender' onChange={(e) => handleInputChange(e)}>
                             <option value="">Choose a gender</option>
                             <option value="female">Female</option>
                             <option value="male">Male</option>

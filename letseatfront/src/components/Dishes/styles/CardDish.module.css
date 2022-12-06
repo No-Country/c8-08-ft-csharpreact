@@ -1,0 +1,86 @@
+.container1 {
+    width: 270px;
+    display: flex;
+    flex-direction: row;
+    height: 260px;
+    transition: all 0.2s;
+    border-radius: 15px;
+}
+
+.container1:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(169, 169, 169);
+    border-radius: 20px;
+    height: auto;
+    /* flex-wrap: wrap; */
+}
+
+.boxPrincipal {
+    display: flex;
+    flex-direction: row;
+}
+
+.picture {
+    height: 260px;
+    width: 270px;
+    background-color: rgb(60, 140, 108);
+    margin: 0px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.boxTitle {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.254);
+    border-radius: 15px;
+}
+
+.name {
+    margin: 30px 30px 0px 0px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.boxScore {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    height: 20px;
+    margin: 0px 30px 30px 0px;
+}
+
+.iconScore {
+    height: 20px;
+    width: 20px;
+}
+
+.score {
+    margin: 0px;
+    font-size: 1.5rem;
+}
+
+.iconClose {
+    margin: 30px 30px 0px 0px;
+    height: 25px;
+    width: 25px;
+}
+
+.iconClose:hover {
+    cursor: pointer;
+    color: rgb(60, 140, 108);
+}

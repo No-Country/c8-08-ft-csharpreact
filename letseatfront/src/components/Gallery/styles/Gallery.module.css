@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.boxPictures {
+    /* columns: 2;
+    column-gap: 8px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 90%;
+}
+
+.picture {
+    background-color: rgb(60, 140, 108);
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+}
+

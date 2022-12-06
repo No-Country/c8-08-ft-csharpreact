@@ -1,18 +1,29 @@
 import { Link, useNavigate } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import { useDispatch } from "react-redux"
 import styles from "../styles/logIn.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
 import Swal from "sweetalert2"
+import HttpCliente from "../services/HttpCliente"
 // import { postLogIn } from '../redux/actions/index.js'
 
-import axios from "axios"
-const UrlUser = "http://platano-001-site1.ftempurl.com/api/Login"
+//import axios from "axios"
+const UrlUser = "https://lets-eat.somee.com/api/Login"
 
 
-export default function LogIn () {
-  // const dispatch = useDispatch()
+export default function LogIn ({ singUp, rol }) {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(singUp === true) {
+      if(rol === 2) {
+        navigate("/profile/U/:user_id");
+     } 
+      if(rol === 3)
+        navigate("/profile/O/:user_id");
+      }
+  })
+
 
   const [input, setInput] = useState({
     email: "",
@@ -30,11 +41,13 @@ export default function LogIn () {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post(UrlUser, input)
-      .then(function (response) { console.log(response) })
-      navigate("/");
-    } catch (error) {
-      console.log(error)
+      HttpCliente.post(UrlUser, input)
+      .then(function (response) { 
+        window.localStorage.setItem("security_token",response.data.data);
+        console.log(response) })
+        navigate("/");
+      } catch (error) {
+      console.log("error",error)
       Swal.fire({
         title: "Login Error",
         text: "Your email or your password are not correct. Try again please!",
