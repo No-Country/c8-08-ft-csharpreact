@@ -8,7 +8,7 @@ import HttpCliente from "../services/HttpCliente"
 // import { postLogIn } from '../redux/actions/index.js'
 
 //import axios from "axios"
-const UrlUser = "http://platano-001-site1.ftempurl.com/api/Login"
+const UrlUser = "https://lets-eat.somee.com/api/Login"
 
 
 export default function LogIn ({ singUp, rol }) {
