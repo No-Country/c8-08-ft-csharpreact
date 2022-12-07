@@ -88,14 +88,14 @@ function handleClick () {
               </div>
             </div>
           }
-          <div className={styles.boxSecondary}>
+          <div className={styles.box2}>
             <h1 className={styles.title}>Descripción:</h1>
             <h1 className={styles.details}>{detail.description}</h1>
             <h1 className={styles.title}>Encontrarás a {detail.name} en:</h1>
             <div className={styles.boxDeptMun}>
-              <h5 className={styles.details}>{detail.dpart}</h5>
+              <h5 className={styles.detailsLocation}>{detail.dpart}</h5>
               <BsDot className={styles.dot}/>
-              <h5 className={styles.details}>{detail.mund}</h5>
+              <h5 className={styles.detailsLocation}>{detail.mund}</h5>
             </div>
             <h5 className={styles.details}>Dirección: {detail.adress}</h5>
           </div>

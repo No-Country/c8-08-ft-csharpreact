@@ -33,8 +33,7 @@ export default function Cards () {
                 <Card restaurant={restaurant} key={restaurant.id} />
               )   
               })
-          }
-          <h1>holasdfd</h1>         
+          }      
         </div>
   )
 }

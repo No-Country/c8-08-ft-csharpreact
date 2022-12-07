@@ -77,12 +77,17 @@ export default function CardDish ({ dish, rol, singUp }) {
           >
             <div className={styles.boxTitle}>
               <div className={styles.boxTop}>
-                <h3 className={styles.name}>{detailDish.name.toUpperCase()}</h3>
-                <div className={styles.boxScore}>
-                  <AiFillStar className={styles.iconScore}/>
-                  <h5 className={styles.score}>{score}</h5>
+                <GrClose className={styles.iconClose} onClick={handleClick}/>
+                <div className={styles.boxinterno}>
+                  <h3 className={styles.name}>{detailDish.name.toUpperCase()}</h3>
+                  <div className={styles.boxScore}>
+                    <AiFillStar className={styles.iconScore}/>
+                    <h5 className={styles.score}>{score}</h5>
+                  </div>
                 </div>
+
               </div>
+
               {
                 showPhotos ? <button className={styles.buttonPhotos} onClick={handleClickPhotos}><IoMdPhotos className={styles.iconPhotos}/> VER MENOS FOTOS</button>
                 : <button className={styles.buttonPhotos} onClick={handleClickPhotos}><IoMdPhotos className={styles.iconPhotos}/> VER MÁS FOTOS</button>
@@ -90,8 +95,6 @@ export default function CardDish ({ dish, rol, singUp }) {
             </div>
           </div>
           <DetailDish detailDish={detailDish} showPhotos={showPhotos} setShowPhotos={setShowPhotos} singUp={singUp} rol={rol} />
-          <GrClose className={styles.iconClose} onClick={handleClick}/>
-
         </div>
           {
             showPhotos && <Gallery pictureBusinesses={detailDish.pictureDishes}/>
