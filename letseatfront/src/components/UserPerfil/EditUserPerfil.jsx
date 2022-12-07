@@ -3,7 +3,7 @@ import styles from './styles/EditPerfil.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlEditUserPerfil = "http://platano-001-site1.ftempurl.com/api/Business/update/"
+const UrlEditUserPerfil = "https://lets-eat.somee.com/api/Business/update/"
 
 export default function EditUserPerfil ({setShow, show, userId}) {
 

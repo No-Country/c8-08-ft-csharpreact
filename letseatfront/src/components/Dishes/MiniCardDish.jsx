@@ -3,44 +3,49 @@ import styles from "./styles/MiniCardDish.module.css"
 import { AiTwotoneEdit, AiOutlineDelete } from 'react-icons/ai'
 import Swal from "sweetalert2"
 
-import axios from "axios"
-const UrlDeleteRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/Delecte/"
+import HttpCliente from "../../services/HttpCliente";
+const UrlDeleteDish = "/Dish/Delete/"
 
 
-export default function MiniCardDish ({dish, setShow, setRestaurantId}) {
+export default function MiniCardDish ({dish, setShow, setDetailDish}) {
 
-    function handleClickEditRestaurant () {
-    setShow("editRestaurant")
-    setRestaurantId(dish.id)
+    function handleClickEditDish () {
+    setShow("editDish")
+    setDetailDish(dish)
     }
+
+    console.log(dish)
 
     function handleDelete(e) { 
     e.preventDefault()
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: '¿Estás seguro?',
+        text: "No podrás revertir esto!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#A7D129',
+        confirmButtonColor: '#3c8c6c',
         cancelButtonColor: 'rgb(43, 43, 44);',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Si, quiero borrarlo!'
     }).then((result) => {
         if (result.isConfirmed) {
-            axios.delete(`${UrlDeleteRestaurant}${dish.id}`)
-        Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success',
-        )
-        }
-    })
+            HttpCliente.delete(`${UrlDeleteDish}${dish.id}`)
+            .then((response) => {
+                console.log(response.data.data);
+    },err=>{console.error(err)})
+    Swal.fire(
+        'Borrado!',
+        'Tu platillo fue borrado exitosamente.',
+        'success',
+        ) 
     }
+})
+}
 
     return (
         <div className={styles.container}>
             <h1 className={ styles.text }>{dish.name}</h1>
             <div className={styles.boxIcons}>
-                <button className={ styles.buttonIcon } onClick={handleClickEditRestaurant}>
+                <button className={ styles.buttonIcon } onClick={handleClickEditDish}>
                     <AiTwotoneEdit className={ styles.icon } />
                 </button>
                 <button className={ styles.buttonIcon }>

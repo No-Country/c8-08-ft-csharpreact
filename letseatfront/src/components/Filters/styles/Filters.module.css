@@ -11,7 +11,7 @@
     padding: 0 40px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
 }
 
 .input, .search, .inputName, .buttonFilters  {
@@ -30,8 +30,7 @@
     align-items: center;
     width: 30%;
     justify-content: space-between;
-    border-radius: 20px 50px 50px 20px;
-
+    border-radius: 10px;
 }
 
 .input {
@@ -68,13 +67,13 @@
     width: 80%;
     border: none;
     background-color: transparent;
-    border-radius: 10px 0 0 10px;
     font-size: 1rem;
 }
 
 .iconSearch {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
+    margin-left: 10px;
 }
 
 .iconSearch:hover {
@@ -87,6 +86,78 @@
     font-size: 5rem;
     line-height: 3.6rem;
     text-align: center;
-    margin: 80px 0px 20px 0px;
+    margin: 80px auto 0px auto;
 }
 
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+@media (max-width: 1290px) {
+    .text1 {
+        font-size: 4rem;
+        line-height: 3.4rem;
+    }    
+    .search {
+        width: 35%;
+    }
+}
+
+@media (max-width: 950px) {
+    .text1 {
+        font-size: 3.5rem;
+        line-height: 3.2rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .text1 {
+        font-size: 3.2rem;
+        line-height: 3rem;
+    }
+    .search {
+        width: 40%;
+    }
+}
+
+@media (max-width: 790px) {
+    .text1 {
+        font-size: 3.2rem;
+    }
+    .search {
+        width: 42%;
+    }
+
+}
+
+@media (max-width: 680px) {
+    .text1 {
+        font-size: 3.2rem;
+        line-height: 2.8rem;
+        width: 80%;
+    }
+    .search {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 560px) {
+    .text1 {
+        font-size: 3rem;
+        line-height: 2.3rem;
+    }
+    .search {
+        width: 55%;
+    }
+
+}
+
+@media (max-width: 430px) {
+    .text1 {
+        font-size: 2.3rem;
+        line-height: 2rem;
+    }
+    .search {
+        width: 200px;
+    }
+
+}

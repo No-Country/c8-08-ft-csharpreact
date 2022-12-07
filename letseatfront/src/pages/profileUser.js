@@ -38,14 +38,20 @@ export default function ProfileUser () {
             <div className={ styles.boxPersonal }>
                 <div className={ styles.boxInfo }>
                     <img className={ styles.imageProfile } src={user.urlPhoto} alt="profileImg"/>
-                    <h1 className={ styles.name }  >{user.userName} {user.lastName}</h1>
-                    <h1 className={ styles.email }>{user.user.email}ddd</h1>
-                    <h1 className={ styles.phone }>Phone: {user.phone}</h1>
-                    <h1 className={ styles.gender }>Gender: {user.gender}</h1>
-                    <h1 className={ styles.birthday }>Birthday:{user.birthday.slice(0,10)}</h1>
-                    <button className={ styles.buttonEdit } onClick={handleClickEditPerfil}><AiTwotoneEdit className={ styles.iconEdit } /></button>
+                    <div className={ styles.boxData }>
+                        <h1 className={ styles.name }  >{user.userName} {user.lastName}</h1>
+                        <h1 className={ styles.email }>{user.user.email}</h1>
+                        <button className={ styles.buttonEdit } onClick={handleClickEditPerfil}><AiTwotoneEdit className={ styles.iconEdit } /></button>
+                    </div>
                    </div>
+
             </div>
+            <div>
+                <h1 className={ styles.phone }>Phone: {user.phone}</h1>
+                <h1 className={ styles.gender }>Gender: {user.gender}</h1>
+                <h1 className={ styles.birthday }>Birthday:{user.birthday.slice(0,10)}</h1>
+            </div>
+
             <div className={ styles.boxPrincipal }>
             <div className={ styles.boxSecondary }>   
                 {

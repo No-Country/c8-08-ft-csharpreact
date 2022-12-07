@@ -5,11 +5,12 @@ import { BsDot } from 'react-icons/bs'
 import { useParams } from "react-router-dom"
 import {IoMdPhotos} from "react-icons/io"
 
-import axios from "axios"
 import Gallery from "../components/Gallery/Gallery"
 import Dishes from "../components/Dishes/Dishes"
 import FormScore from "../components/Score/FormScore"
-const UrlRestaurantDetail = "http://platano-001-site1.ftempurl.com/api/Business"
+
+import HttpCliente from "../services/HttpCliente";
+const UrlRestaurantDetail = "/Business"
 
 export default function Detail ({ rol, singUp }) {
   let {restaurant_id} = useParams();
@@ -28,13 +29,12 @@ export default function Detail ({ rol, singUp }) {
 
 try {
   useEffect(() => {
-    return async () => {
-      await axios.get(`${UrlRestaurantDetail}/${restaurant_id}`)
-      .then((response) => setDetail(response.data.data));
-      // console.log(detail)
-  }
-  });
-
+      HttpCliente.get(`${UrlRestaurantDetail}/${restaurant_id}`)
+        .then((response) => {
+          setDetail(response.data.data);
+          console.log("respuesta detail",response.data.data);
+        },err=>{console.error(err)})
+  }, [restaurant_id]);
 } catch (error) {
   console.log(error)
 }
@@ -88,14 +88,14 @@ function handleClick () {
               </div>
             </div>
           }
-          <div className={styles.boxSecondary}>
+          <div className={styles.box2}>
             <h1 className={styles.title}>Descripción:</h1>
             <h1 className={styles.details}>{detail.description}</h1>
             <h1 className={styles.title}>Encontrarás a {detail.name} en:</h1>
             <div className={styles.boxDeptMun}>
-              <h5 className={styles.details}>{detail.dpart}</h5>
+              <h5 className={styles.detailsLocation}>{detail.dpart}</h5>
               <BsDot className={styles.dot}/>
-              <h5 className={styles.details}>{detail.mund}</h5>
+              <h5 className={styles.detailsLocation}>{detail.mund}</h5>
             </div>
             <h5 className={styles.details}>Dirección: {detail.adress}</h5>
           </div>

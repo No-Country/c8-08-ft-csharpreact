@@ -3,20 +3,20 @@ import styles from './styles/NewRestaurant.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlEditRestaurant = "http://platano-001-site1.ftempurl.com/api/Business/update/"
+const UrlEditRestaurant = "https://lets-eat.somee.com/api/Business/update/"
 
-export default function EditRestaurant ({setShow, OwnerId, restaurantId }) {
+export default function EditRestaurant ({setShow, OwnerId, restaurant }) {
 
     function handleClick () {
         setShow("restaurantList")
       }
 
       const [input, setInput] = useState({
-        Name: "",
-        Description: "",
-        Dpart: "",
-        Mund: "",
-        Adress: "",
+        Name: restaurant.name,
+        Description: restaurant.description,
+        Dpart: restaurant.dpart,
+        Mund: restaurant.mund,
+        Adress: restaurant.adress,
         // Img: [],
       })
 
@@ -47,7 +47,7 @@ export default function EditRestaurant ({setShow, OwnerId, restaurantId }) {
         //   console.log(`${key}: ${value}`)
         // }
         e.preventDefault()
-        await axios.put(`${UrlEditRestaurant}${restaurantId}`, formData, {
+        await axios.put(`${UrlEditRestaurant}${restaurant.id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -78,7 +78,7 @@ export default function EditRestaurant ({setShow, OwnerId, restaurantId }) {
         <div className={ styles.boxForm }>
        {/* <IoIosCloseCircleOutline className={styles.iconClose} onClick={handleClick} /> */}
 
-        <h1 className={styles.mainTitle}>Editar restaurante</h1>
+        <h1 className={styles.mainTitle}>Editar {restaurant.name}</h1>
                 <h3 className={styles.secondaryTitle}>Modifica la información que mostraras</h3>
                 <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
                     <div className={styles.secondaryBox}>

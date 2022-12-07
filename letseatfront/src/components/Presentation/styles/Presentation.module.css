@@ -49,3 +49,87 @@ font-family: 'Titan One', cursive; */
     font-size: 2rem;
     font-family: 'Alumni Sans Pinstripe', sans-serif;
 }
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+@media (max-width: 800px) {
+    .text1 {
+        font-size: 6rem;
+        line-height: 7rem;
+    }
+    
+    .text2 {
+        font-size: 15rem;
+        line-height: 13rem;
+    }
+
+    .text3 {
+        font-size: 1.8rem;
+    } 
+}
+
+@media (max-width: 650px) {
+    .text1 {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+    
+    .text2 {
+        font-size: 13rem;
+        line-height: 10rem;
+    }
+
+    .text3 {
+        font-size: 1.6rem;
+    } 
+}
+
+@media (max-width: 560px) {
+    .text1 {
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+    
+    .text2 {
+        font-size: 10rem;
+        line-height: 8rem;
+    }
+
+    .text3 {
+        font-size: 1.5rem;
+    } 
+}
+
+@media (max-width: 480px) {
+    .text1 {
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+    
+    .text2 {
+        font-size: 8rem;
+        line-height: 6rem;
+    }
+
+    .text3 {
+        font-size: 1.2rem;
+    } 
+}
+
+@media (max-width: 390px) {
+    .text1 {
+        font-size: 2.8rem;
+        line-height: 3rem;
+    }
+    
+    .text2 {
+        font-size: 7rem;
+        line-height: 6rem;
+    }
+
+    .text3 {
+        font-size: 1.2rem;
+        width: 80%;
+        text-align: center;
+    } 
+}

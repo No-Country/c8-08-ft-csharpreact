@@ -1,18 +1,21 @@
 .container {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 100px 40px 0px 50px;
+    margin-top: 100px;
 }
 
 .boxPrincipal {
     display: flex;
+    width: 90%;
     flex-direction: row;
+    margin: 0px auto;
 }
 
 .boxIntroduction {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 500px;
     width: 50%;
     border-radius: 30px;
     margin: 0px;
@@ -36,8 +39,8 @@
 
 .name {
     margin: 40px 0px 0px 40px;
-    font-size: 4rem;
-    line-height: 3.8rem;
+    font-size: 3rem;
+    line-height: 3rem;
     color: white;
     font-family: 'Bowlby One', cursive;
 }
@@ -63,11 +66,20 @@
 
 .details {
         margin: 0px;
-        line-height: 1.5rem;
-        font-family: 'Alumni Sans Pinstripe', sans-serif;
+        line-height: 1.1rem;
+        /* font-family: 'Alumni Sans Pinstripe', sans-serif; */
         color: rgb(116, 112, 112);
-        font-size: 2rem;
-        font-weight: 700;
+        font-size: 1.1rem;
+        font-weight: 400;
+}
+
+.detailsLocation {
+    margin: 0px;
+    line-height: 1rem;
+    /* font-family: 'Alumni Sans Pinstripe', sans-serif; */
+    color: rgb(116, 112, 112);
+    font-size: 1.3rem;
+    font-weight: 800;
 }
 
 .dot {
@@ -75,34 +87,42 @@
     width: 50px;
 }
 
-.principalPicture {
-    height: 350px;
-    width: 50%;
-    border-radius: 10px 0 0 10px;
-    background-color: rgb(60, 140, 108);
-}
-
-.boxSecondary {
-    margin: 0px auto;
+.box2 {
+    /* margin-left: 30px;
+    width:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(13, 255, 0, 0.385); */
+    margin: 0px 0px 0px 30px;
     width: 45%;
 }
 
 .title {
     font-family: 'Satisfy', cursive;
     font-size: 2.5rem;
-    margin: 30px 0px 0px 0px; 
+    line-height: 2.2rem;
+    margin: 30px 0px 10px 0px; 
+    width: 90%;
 }
 
 .boxDeptMun {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: fit-content;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
 }
 
 .boxButton {
     display: flex;
-    align-items: center;
-    margin: 0px 30px 10px 30px;
+    flex-direction: column;
+    align-items:flex-start;
+    margin: 0px 30px 30px 30px;
     justify-content: space-between;
 }
 
@@ -133,3 +153,71 @@
     height: 25px;
     width: 25px;
 }
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+@media (max-width: 1090px) {
+    .title {
+        margin-top: 20px;
+        font-size: 1.8rem;
+        line-height: 1.5rem;
+    }
+    .name {
+        margin: 40px 40px 0px 40px;
+        width: 80%;
+        font-size: 2.8rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .name {
+        width: 80%;
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    .boxPrincipal {
+        flex-direction: column;
+    }
+    .boxIntroduction {
+        height: 350px;
+        width: 100%;
+    }
+    .box2 {
+        margin: 0px auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 350px) {
+    .title {
+        margin-top: 30px;
+        font-size: 1.5rem;
+        line-height: 1.2rem;
+    }
+
+    .box2 {
+        width: 90%;
+    }
+
+    .details {
+        line-height: 1rem;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    
+    .detailsLocation {
+        margin: 0px;
+        line-height: 1rem;
+        color: rgb(116, 112, 112);
+        font-size: 1rem;
+        font-weight: 800;
+    }
+    
+    
+
+}
+
+
