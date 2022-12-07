@@ -23,16 +23,25 @@ export default function Dishes ({ rol, singUp }) {
 
     return (
         <div className={styles.container}>
-          <h1 className={styles.title}>Menú!</h1>
-          <div className={styles.boxCards}>
-            {allDish &&
-            allDish.map((dish) => {
-              return (
-                <CardDish dish={dish} key={dish.id} singUp={singUp} rol={rol}/>
-              )   
-              })
-            }           
-          </div>
+          {
+            allDish.length === 0 ? 
+            <h1 className={styles.title}>No hay Menú disponible...</h1>
+            :
+            <>
+              <h1 className={styles.title}>Menú!</h1>
+              <div className={styles.boxCards}>
+                {allDish &&
+                allDish.map((dish) => {
+                  return (
+                    <CardDish dish={dish} key={dish.id} singUp={singUp} rol={rol}/>
+                  )   
+                  })
+                }           
+              </div>
+
+            </>
+
+          }
         </div>
     )
 }

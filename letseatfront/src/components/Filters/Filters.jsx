@@ -1,17 +1,14 @@
-import React, { useState } from "react"
+import React from "react"
 import styles from "./styles/Filters.module.css"
 import { HiSearchCircle } from 'react-icons/hi'
-import {FiFilter} from "react-icons/fi"
+// import {FiFilter} from "react-icons/fi"
 
 export default function Filters () {
-  const Provincia = ["Mendoza", "San Luis", "Bs.As."]
-  const Departamento = ["Departamento 1", "Departamento 2", "Departamento 3"]
+//   const [showOptions, setShowOptions] = useState(false)
 
-  const [showOptions, setShowOptions] = useState(false)
-
-  function handleClick () {
-    setShowOptions(!showOptions)
-  }
+//   function handleClick () {
+//     setShowOptions(!showOptions)
+//   }
 
   return (
         <div className={styles.container}>
@@ -19,8 +16,8 @@ export default function Filters () {
             <div className={styles.filtros}>
                 <div className={styles.search}>
                     <input className={styles.inputName} type="text" placeholder="Restaurant Name..." />
-                    <HiSearchCircle className={styles.iconSearch}/>
                 </div>
+                <HiSearchCircle className={styles.iconSearch}/>
                 {/* <button className={styles.buttonFilters} onClick={handleClick}><FiFilter className={styles.iconFilter}/>FILTERS</button>
                 
                 {

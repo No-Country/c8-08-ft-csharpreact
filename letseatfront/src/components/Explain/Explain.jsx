@@ -13,7 +13,7 @@ export default function Explain () {
             <div className={styles.boxPrincipal}>
                 <div className={styles.cardPrincipal}>
                     <h3 className={styles.text1}>No pierdas más de tu tiempo!</h3>
-                    <h3 className={styles.text2}>Encontrarás más rápido a dónde ir comer, ya que podrás:</h3>
+                    <h3 className={styles.text2}>Encontrarás más rápido a dónde ir a comer, ya que podrás:</h3>
                 </div>
                 <div className={styles.boxCards}>
                     <div className={styles.card}>
