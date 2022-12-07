@@ -3,6 +3,7 @@ import styles from "./styles/CardDish.module.css";
 import DetailDish from "./DetailDish.jsx";
 import { AiFillStar } from 'react-icons/ai'
 import {GrClose} from "react-icons/gr"
+import {IoMdPhotos} from "react-icons/io"
 import Gallery from "../Gallery/Gallery"
 
 export default function CardDish ({ dish, rol, singUp }) {
@@ -12,6 +13,9 @@ export default function CardDish ({ dish, rol, singUp }) {
 //   }
 // }, [dish]);
   const [showPhotos, setShowPhotos] = useState(false)
+  function handleClickPhotos () {
+    setShowPhotos(!showPhotos)
+  }
   
   const [detailDish, setDetailDish] = useState({
     businessId: dish.businessId,
@@ -68,16 +72,21 @@ export default function CardDish ({ dish, rol, singUp }) {
       :
       <div className={styles.container2}>
         <div className={styles.boxPrincipal}>
-          <div className={styles.picture} 
+          <div className={styles.picture2} 
             style={{background: `url(${detailDish.pictureDishes[0].urlImg})`, backgroundSize: "cover"}}
           >
             <div className={styles.boxTitle}>
-              <h3 className={styles.name}>{detailDish.name.toUpperCase()}</h3>
-              <div className={styles.boxScore}>
-              <AiFillStar className={styles.iconScore}/>
-              <h5 className={styles.score}>{score}</h5>
-            </div>
-
+              <div className={styles.boxTop}>
+                <h3 className={styles.name}>{detailDish.name.toUpperCase()}</h3>
+                <div className={styles.boxScore}>
+                  <AiFillStar className={styles.iconScore}/>
+                  <h5 className={styles.score}>{score}</h5>
+                </div>
+              </div>
+              {
+                showPhotos ? <button className={styles.buttonPhotos} onClick={handleClickPhotos}><IoMdPhotos className={styles.iconPhotos}/> VER MENOS FOTOS</button>
+                : <button className={styles.buttonPhotos} onClick={handleClickPhotos}><IoMdPhotos className={styles.iconPhotos}/> VER MÁS FOTOS</button>
+              }
             </div>
           </div>
           <DetailDish detailDish={detailDish} showPhotos={showPhotos} setShowPhotos={setShowPhotos} singUp={singUp} rol={rol} />

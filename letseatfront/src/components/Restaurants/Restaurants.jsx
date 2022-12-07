@@ -5,6 +5,7 @@ import styles from "./styles/Restaurants.module.css"
 import HttpCliente from "../../services/HttpCliente";
 import EditRestaurant from "./EditRestaurant";
 import EditOwnerPerfil from "../UserPerfil/EditOwnerPerfil";
+import EditDish from "../Dishes/EditDish";
 export default function Restaurants ({ OwnerId, setShow, show }) {
     const [business,setInput] = useState([]);
 
@@ -15,7 +16,10 @@ export default function Restaurants ({ OwnerId, setShow, show }) {
         },err=>{console.error(err)})
     },[]);
 
+    const [restaurant, setRestaurant] = useState(false)
     const [restaurantId, setRestaurantId] = useState(false)
+    const [restaurantName, setRestaurantName] = useState(false)
+    const [detailDish, setDetailDish] = useState(false)
  
         return (
             <div className={styles.container}>
@@ -26,7 +30,7 @@ export default function Restaurants ({ OwnerId, setShow, show }) {
                         <>
                             <h1>Mis restaurantes/negocios</h1>
                             {business && business.map( 
-                                ( num,index) => <CardRestaurant num={num} key={index} setShow={setShow} setRestaurantId={setRestaurantId} />)
+                                ( num,index) => <CardRestaurant num={num} key={index} setShow={setShow} setRestaurantId={setRestaurantId} setRestaurantName={setRestaurantName} setRestaurant={setRestaurant} setDetailDish={setDetailDish}/>)
                             }
                         </>
                         : <h1>Cargando...</h1>
@@ -35,16 +39,20 @@ export default function Restaurants ({ OwnerId, setShow, show }) {
                 }
                 {
                     show === "formNewDish" &&
-                    <NewDish restaurantId={restaurantId} setShow={setShow} OwnerId={OwnerId} />
+                    <NewDish restaurantId={restaurantId} restaurantName={restaurantName} setShow={setShow} OwnerId={OwnerId} />
                 }
                 {
                     show === "editRestaurant" &&
-                    <EditRestaurant restaurantId={restaurantId} setShow={setShow} OwnerId={OwnerId}/>
+                    <EditRestaurant restaurant={restaurant} setShow={setShow} OwnerId={OwnerId}/>
                 }    
                 {
                     show === "editPerfil" &&
                     <EditOwnerPerfil setShow={setShow} OwnerId={OwnerId} />
-                }                
+                }   
+                {
+                    show === "editDish" &&
+                    <EditDish setShow={setShow} detailDish={detailDish}/> 
+                }             
             </div>
         )
 

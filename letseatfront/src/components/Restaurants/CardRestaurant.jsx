@@ -10,16 +10,17 @@ import ListDishes from "../Dishes/ListDishes"
 const UrlDeleteRestaurant = "/Business/Delecte/"
 
 
-export default function CardRestaurant ({num, setShow, setRestaurantId}) {
+export default function CardRestaurant ({num, setShow, setRestaurantName, setRestaurantId, setRestaurant, setDetailDish}) {
 
     function handleClickNewDish () {
         setShow("formNewDish")
         setRestaurantId(num.id)
+        setRestaurantName(num.name)
     }
 
     function handleClickEditRestaurant () {
     setShow("editRestaurant")
-    setRestaurantId(num.id)
+    setRestaurant(num)
     }
 
     const [showDishes, setShowDishes] = useState(true)
@@ -31,13 +32,13 @@ export default function CardRestaurant ({num, setShow, setRestaurantId}) {
     function handleDelete(e) { 
     e.preventDefault()
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: '¿Estás seguro?',
+        text: "No podrás revertir esto!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#A7D129',
+        confirmButtonColor: '#3c8c6c',
         cancelButtonColor: 'rgb(43, 43, 44);',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Si, quiero borrarlo!'
     }).then((result) => {
         if (result.isConfirmed) {
             HttpCliente.delete(`${UrlDeleteRestaurant}${num.id}`)
@@ -45,8 +46,8 @@ export default function CardRestaurant ({num, setShow, setRestaurantId}) {
                 console.log(response.data.data);
     },err=>{console.error(err)})
     Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
+        'Borrado!',
+        'Tu restaurante fue borrado exitosamente.',
         'success',
         ) 
     }
@@ -76,7 +77,7 @@ export default function CardRestaurant ({num, setShow, setRestaurantId}) {
             </div>
             </div>
             {
-                !showDishes && <ListDishes restaurant_id={num.id}/>
+                !showDishes && <ListDishes restaurant_id={num.id} setDetailDish={setDetailDish} setShow={setShow}/>
 
             }
         </div>

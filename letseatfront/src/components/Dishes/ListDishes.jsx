@@ -4,7 +4,7 @@ import styles from "./styles/ListDishes.module.css"
 import HttpCliente from "../../services/HttpCliente";
 const UrlAllDish = "/Dish?idBusiness="
 
-export default function ListDishes ({ restaurant_id, setShow, show }) {
+export default function ListDishes ({ restaurant_id, setShow, show, setDetailDish }) {
     const [allDish, setAllDish] = useState([])
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export default function ListDishes ({ restaurant_id, setShow, show }) {
               {allDish &&
               allDish.map((dish) => {
                 return (
-                  <MiniCardDish dish={dish} key={dish.id} />
+                  <MiniCardDish dish={dish} key={dish.id} setDetailDish={setDetailDish} setShow={setShow}/>
                 )   
                 })
               }           
