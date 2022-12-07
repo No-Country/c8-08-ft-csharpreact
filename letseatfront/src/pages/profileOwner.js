@@ -23,7 +23,7 @@ export default function ProfileOwner () {
     },[])
 
   const [showFormNewRestaurant, setShowFormNewRestaurant] = useState(false)
-  const [show, setShow] = useState("restaurantList") //formNewDish -- editRestaurant -- editPerfil
+  const [show, setShow] = useState("restaurantList") //formNewDish -- editRestaurant -- editPerfil -- editDish
 
   function handleClick () {
     setShowFormNewRestaurant(!showFormNewRestaurant)

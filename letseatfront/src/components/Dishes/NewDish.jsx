@@ -5,7 +5,7 @@ import Swal from "sweetalert2"
 
 const UrlNewDish = "https://lets-eat.somee.com/api/Dish"
 
-export default function NewDish ({setShow, restaurantId }) {
+export default function NewDish ({setShow, restaurantId, restaurantName }) {
 
     function handleClick () {
       setShow("restaurantList")
@@ -43,6 +43,7 @@ export default function NewDish ({setShow, restaurantId }) {
       const handleSubmit = async (e) => {
         formData.append('img',img)
         formData.append('Name',e.target.Name.value)
+        formData.append('Description',e.target.Description.value)
         formData.append('Prece',e.target.Prece.value)
         formData.append('BusinessId', restaurantId)
         // for (let [key, value] of formData) {
@@ -68,7 +69,7 @@ export default function NewDish ({setShow, restaurantId }) {
           text:'Nuevo platillo creado exitosamente!',
           confirmButtonColor: "#3c8c6c",}
         )
-
+        setShow("restaurantList")
       }
     
     
@@ -77,7 +78,7 @@ export default function NewDish ({setShow, restaurantId }) {
         <div className={ styles.boxForm }>
        {/* <IoIosCloseCircleOutline className={styles.iconClose} onClick={handleClick} /> */}
 
-        <h1 className={styles.mainTitle}>Crear nuevo platillo para el menú</h1>
+        <h1 className={styles.mainTitle}>Crear nuevo platillo para el menú de {restaurantName}</h1>
                 <h3 className={styles.secondaryTitle}>Coloca toda la información sobre tu platillo</h3>
                 <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
                     <div className={styles.secondaryBox}>

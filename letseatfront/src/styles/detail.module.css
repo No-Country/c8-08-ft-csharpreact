@@ -12,7 +12,7 @@
 .boxIntroduction {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 500px;
     width: 50%;
     border-radius: 30px;
     margin: 0px;
@@ -36,8 +36,8 @@
 
 .name {
     margin: 40px 0px 0px 40px;
-    font-size: 4rem;
-    line-height: 3.8rem;
+    font-size: 3rem;
+    line-height: 3rem;
     color: white;
     font-family: 'Bowlby One', cursive;
 }
