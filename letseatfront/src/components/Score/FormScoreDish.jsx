@@ -5,11 +5,13 @@ import { AiOutlineStar, AiFillCheckCircle, AiFillCloseCircle } from 'react-icons
 import Swal from "sweetalert2"
 
 import axios from "axios"
-const UrlNewScore = ""
+const UrlNewScore = "https://lets-eat.somee.com/api/Score/Dish"
 
-export default function FormScore ({ rol, singUp, setShowFormScore, showFormScore, showFormNewComment, setShowFormNewComment }) {
-    const [score, setScore] = useState({
-        value: 0
+export default function FormScoreRestaurant ({ idDish, rol, singUp, setShowFormScore, showFormScore, showFormNewComment, setShowFormNewComment }) {
+  const scoreName = "score";  
+  const [score, setScore] = useState({
+        score: 0,
+        dishId: idDish
       })
     
 
@@ -18,6 +20,13 @@ export default function FormScore ({ rol, singUp, setShowFormScore, showFormScor
         try {
           await axios.post(UrlNewScore, score)
           .then(function (response) { console.log(response) })
+          Swal.fire(
+            'Gracias!',
+            'Tu calificación es de mucha ayuda!',
+            'success'
+          )
+          setShowFormScore(!showFormScore)
+
         } catch (error) {
           console.log(error)
         }
@@ -47,9 +56,9 @@ export default function FormScore ({ rol, singUp, setShowFormScore, showFormScor
             !showFormScore ? <AiOutlineStar className={styles.iconStar} onClick={handleClick} />
             : 
             <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
-            <StarsRating score={score} setScore={setScore} />
+            <StarsRating score={score} setScore={setScore} scoreName={scoreName}/>
             <div className={ styles.boxIcon }> 
-              <AiFillCheckCircle className={styles.icon} />
+            <button><AiFillCheckCircle className={styles.icon} /></button>
               <AiFillCloseCircle className={styles.icon} onClick={handleClick}/>
             </div> 
             </form>

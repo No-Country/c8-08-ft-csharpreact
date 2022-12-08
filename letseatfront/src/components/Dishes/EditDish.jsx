@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styles from './styles/NewDish.module.css'
-import axios from "axios"
+import HttpCliente from "../../services/HttpCliente";
 import Swal from "sweetalert2"
 
-const UrlEditDish = "https://lets-eat.somee.com/api/Dish/update/"
+const UrlEditDish = "/Dish/Update/"
 
 export default function EditDish ({setShow, restaurantId, detailDish}) {
 
@@ -35,8 +35,9 @@ export default function EditDish ({setShow, restaurantId, detailDish}) {
           [e.target.name]: e.target.value
         })
       }
-    
-      const handleSubmit = async (e) => {
+
+
+      const handleSubmit = (e) => {
         formData.append('img',img)
         formData.append('Name',e.target.Name.value)
         formData.append('Description',e.target.Description.value)
@@ -46,18 +47,14 @@ export default function EditDish ({setShow, restaurantId, detailDish}) {
         //   console.log(`${key}: ${value}`)
         // }
         e.preventDefault()
-        await axios.put(`${UrlEditDish}${detailDish.businessId}`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
-        })
+        HttpCliente.put(`${UrlEditDish}${detailDish.id}`, formData)
           .then(function (response) { console.log(response) })
           .catch(function (response) { console.log(response) })
         setInput({
           Name: "",
           Description: "",
-          Prece: "",
-          BusinessId: "",
+          Prece: 0,
+          BusinessId: 0,
             // Img: [],
           })
         setShow("restaurantList")
