@@ -2,11 +2,16 @@ import React, { useState } from "react"
 import styles from "./styles/NavBar.module.css"
 import { MdOutlineFoodBank } from 'react-icons/md'
 import { HiUserCircle } from 'react-icons/hi'
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 // import Filters from "../Filters/Filters";
 
 export default function NavBar ({ rol, singUp }) {
   const [showOptions, setShowOptions] = useState(false)
+  //  const navigate = useNavigate();
+
+  function logOut () {
+    localStorage.removeItem('security_token');
+  }
 
   function handleClick () {
     setShowOptions(!showOptions)
@@ -43,7 +48,7 @@ export default function NavBar ({ rol, singUp }) {
                       rol === 3
                       && <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link>
                     }
-                      <Link className={styles.optionlink} to={"/"}>Log Out</Link>
+                      <Link className={styles.optionlink} onClick={logOut}>Log Out</Link>
                   </>
                   :
                   <>

@@ -53,7 +53,7 @@ export default function ProfileUser () {
             <div className={ styles.boxSecondary }>   
                 {
                     !show ?
-                    <EditUserPerfil setShow={setShow} show={show} userId={user.id}/>
+                    <EditUserPerfil setShow={setShow} show={show} user={user}/>
                     :
                     <Comments /> 
                 }         

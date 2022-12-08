@@ -7,7 +7,7 @@ import {IoMdPhotos} from "react-icons/io"
 
 import Gallery from "../components/Gallery/Gallery"
 import Dishes from "../components/Dishes/Dishes"
-import FormScore from "../components/Score/FormScore"
+import FormScoreRestaurant from "../components/Score/FormScoreRestaurant"
 
 import HttpCliente from "../services/HttpCliente";
 const UrlRestaurantDetail = "/Business"
@@ -77,7 +77,7 @@ function handleClick () {
               <div className={styles.boxButton}>
                 {
                   rol !== 3 &&
-                  <FormScore showFormScore={showFormScore} setShowFormScore={setShowFormScore} singUp={singUp} rol={rol} />
+                  <FormScoreRestaurant idRestaurant={detail.id} showFormScore={showFormScore} setShowFormScore={setShowFormScore} singUp={singUp} rol={rol} />
                 }
                 {
                   showPhotos ? <button className={styles.buttonPhotos} onClick={handleClick}><IoMdPhotos className={styles.iconPhotos}/> VER MENOS FOTOS</button>
