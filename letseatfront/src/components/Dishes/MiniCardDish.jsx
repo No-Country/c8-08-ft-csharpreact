@@ -1,18 +1,22 @@
 import React from "react"
 import styles from "./styles/MiniCardDish.module.css"
-import { AiTwotoneEdit, AiOutlineDelete } from 'react-icons/ai'
+import {  AiOutlineDelete } from 'react-icons/ai'
 import Swal from "sweetalert2"
 
 import HttpCliente from "../../services/HttpCliente";
 const UrlDeleteDish = "/Dish/Delete/"
 
 
-export default function MiniCardDish ({dish, setShow, setDetailDish}) {
+export default function MiniCardDish ({
+    dish, 
+    // setShow, 
+    // setDetailDish
+}) {
 
-    function handleClickEditDish () {
-    setShow("editDish")
-    setDetailDish(dish)
-    }
+    // function handleClickEditDish () {
+    // setShow("editDish")
+    // setDetailDish(dish)
+    // }
 
     console.log(dish)
 
@@ -45,9 +49,9 @@ export default function MiniCardDish ({dish, setShow, setDetailDish}) {
         <div className={styles.container}>
             <h1 className={ styles.text }>{dish.name}</h1>
             <div className={styles.boxIcons}>
-                <button className={ styles.buttonIcon } onClick={handleClickEditDish}>
+                {/* <button className={ styles.buttonIcon } onClick={handleClickEditDish}>
                     <AiTwotoneEdit className={ styles.icon } />
-                </button>
+                </button> */}
                 <button className={ styles.buttonIcon }>
                     <AiOutlineDelete className={ styles.icon } onClick={handleDelete} />
                 </button>
