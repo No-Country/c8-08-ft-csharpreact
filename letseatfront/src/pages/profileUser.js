@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import styles from '../styles/profileUser.module.css'
-import { AiTwotoneEdit } from 'react-icons/ai'
+// import { AiTwotoneEdit } from 'react-icons/ai'
 import Comments from "../components/Comments/Comments";
 import HttpCliente from "../services/HttpCliente"
 import EditUserPerfil from "../components/UserPerfil/EditUserPerfil";
@@ -28,14 +28,14 @@ export default function ProfileUser () {
 
     const [show, setShow] = useState(true) 
    
-    function handleClickEditPerfil () {
-        setShow(!show)
-      }
+    // function handleClickEditPerfil () {
+    //     setShow(!show)
+    //   }
 
     
     return (
         <div className={ styles.container }>
-                        <button className={ styles.buttonEdit } onClick={handleClickEditPerfil}><AiTwotoneEdit className={ styles.iconEdit } /></button>
+                        {/* <button className={ styles.buttonEdit } onClick={handleClickEditPerfil}><AiTwotoneEdit className={ styles.iconEdit } /></button> */}
 
             <div className={ styles.boxPersonal }>
                 <div className={ styles.boxInfo }>

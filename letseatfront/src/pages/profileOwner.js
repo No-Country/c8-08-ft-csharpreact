@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import styles from '../styles/profileOwner.module.css'
-import { AiTwotoneEdit } from 'react-icons/ai'
+// import { AiTwotoneEdit } from 'react-icons/ai'
 import NewRestaurant from "../components/Restaurants/NewRestaurant";
 import Restaurants from "../components/Restaurants/Restaurants";
 import HttpCliente from "../services/HttpCliente";
@@ -29,9 +29,9 @@ export default function ProfileOwner () {
     setShowFormNewRestaurant(!showFormNewRestaurant)
   }
 
-  function handleClickEditar () {
-    setShow("editPerfil")
-  }
+//   function handleClickEditar () {
+//     setShow("editPerfil")
+//   }
 
     return (
         <div className={ styles.container }>
@@ -43,7 +43,7 @@ export default function ProfileOwner () {
                     <h1 className={ styles.email }>{user.user.email}</h1>
                     <h1 className={ styles.phone }>Teléfono: {user.phone}</h1>
                     <h1 className={ styles.address }>Dirección: {user.adress}</h1>
-                    <button className={ styles.buttonEdit } onClick={handleClickEditar}><AiTwotoneEdit className={ styles.iconEdit } /></button>
+                    {/* <button className={ styles.buttonEdit } onClick={handleClickEditar}><AiTwotoneEdit className={ styles.iconEdit } /></button> */}
                 </div>
             </div>
             </div>

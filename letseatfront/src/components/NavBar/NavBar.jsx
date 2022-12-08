@@ -48,7 +48,7 @@ export default function NavBar ({ rol, singUp }) {
                       rol === 3
                       && <Link className={styles.optionlink} to={"/profile/O/:user_id"}>OwnerUser Profile</Link>
                     }
-                      <Link className={styles.optionlink} onClick={logOut}>Log Out</Link>
+                      <Link className={styles.optionlink} to={"/"} onClick={logOut}>Log Out</Link>
                   </>
                   :
                   <>

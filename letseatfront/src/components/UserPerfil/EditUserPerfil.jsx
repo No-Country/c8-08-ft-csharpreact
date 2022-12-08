@@ -3,21 +3,21 @@ import styles from './styles/EditPerfil.module.css'
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const UrlEditUserPerfil = "https://lets-eat.somee.com/api/Business/update/"
+const UrlEditUserPerfil = "https://lets-eat.somee.com/api/Customer/"
 
-export default function EditUserPerfil ({setShow, show, userId}) {
+export default function EditUserPerfil ({setShow, show, user}) {
 
     function handleClick () {
         setShow(!show)
       }
 
       const [input, setInput] = useState({
-        UserName: "",
-        LastName: "",
-        Gender: "",
-        Phone: "",
+        UserName: user.userName,
+        LastName: user.lastName,
+        Gender: user.gender,
+        Phone: user.phone,
         // urlPhoto: "",
-        Birthday: ""
+        Birthday: user.birthday
       })
 
       var formData = new FormData(); 
@@ -46,7 +46,7 @@ export default function EditUserPerfil ({setShow, show, userId}) {
         //   console.log(`${key}: ${value}`)
         // }
         e.preventDefault()
-        await axios.put(`${UrlEditUserPerfil}${userId}`, formData, {
+        await axios.put(`${UrlEditUserPerfil}${user.id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
