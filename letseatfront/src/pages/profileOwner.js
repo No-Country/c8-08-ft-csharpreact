@@ -38,18 +38,20 @@ export default function ProfileOwner () {
             <div className={ styles.boxPersonal }>
                 <div className={ styles.boxInfo }>
                     <img className={ styles.imageProfile } src={user.urlPhoto} alt="profileImg"/>
+                    <div className={ styles.boxData }>
                     <h1 className={ styles.name }>{user.userName} {user.lastName} </h1>
                     <h1 className={ styles.email }>{user.user.email}</h1>
                     <h1 className={ styles.phone }>Teléfono: {user.phone}</h1>
                     <h1 className={ styles.address }>Dirección: {user.adress}</h1>
                     <button className={ styles.buttonEdit } onClick={handleClickEditar}><AiTwotoneEdit className={ styles.iconEdit } /></button>
-                    {
+                </div>
+            </div>
+            </div>
+            <div className={ styles.boxPrincipal }>
+            {
                 !showFormNewRestaurant
                    && <button className={ styles.button } onClick={handleClick}>NUEVO RESTAURANTE</button>
                     }
-                   </div>
-            </div>
-            <div className={ styles.boxPrincipal }>
             <div className={ styles.boxSecondary }>            
             {
                 showFormNewRestaurant
