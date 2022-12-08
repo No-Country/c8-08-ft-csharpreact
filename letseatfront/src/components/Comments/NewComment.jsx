@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import styles from './styles/NewComment.module.css'
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai'
+import Swal from "sweetalert2"
 
+import axios from "axios"
+const UrlNewComment = "https://lets-eat.somee.com/api/Commet"
 
 export default function NewComment ({dishId, setShowFormNewComment, showFormNewComment }) {
 
@@ -24,35 +27,32 @@ export default function NewComment ({dishId, setShowFormNewComment, showFormNewC
     
       const handleSubmit = async (e) => {
         e.preventDefault()
-        // await axios.post(UrlUser, input, {
-        //   headers: {
-        //     "Content-Type": "multipart/form-data"
-        //   }
-        // })
-        // await axios({
-        //   method: 'post',
-        //   url: UrlUser,
-        //   data: formData,
-        //   header: {
-        //     // 'Accept': 'application/json',
-        //     'Content-Type': 'multipart/form-data'
-        //   }
-        // })
-          // .then(function (response) { console.log(response) })
-          // .catch(function (response) { console.log(response) })
+        try {
+          await axios.post(UrlNewComment, input)
+          .then(function (response) { console.log(response) })
+          Swal.fire(
+            'Gracias!',
+            'Tu comentario es de mucha ayuda!',
+            'success'
+          )
+          // setShowFormScore(!showFormScore)
+
+          console.log(input)
+        } catch (error) {
+          console.log(error)
+        }
         setInput({
           description: "",
           dishId: 0,
           })
-        console.log(input)
       }
 
   return (
     <div className={ styles.container }>
         <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
-            <textarea className={styles.inputTextarea} type="text" name="comment" value={input.comment} placeholder="Tell us" onChange={(e) => handleInputChange(e)}/>
+            <textarea className={styles.inputTextarea} type="text" name="description" value={input.description} placeholder="Comentar..." onChange={(e) => handleInputChange(e)}/>
             <div className={ styles.boxIcon }> 
-                <AiFillCheckCircle className={styles.icon} />
+                <button><AiFillCheckCircle className={styles.icon} /></button>
                 <AiFillCloseCircle className={styles.icon} onClick={handleClickComment}/>
             </div>
         </form>

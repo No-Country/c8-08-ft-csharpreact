@@ -18,19 +18,19 @@ export default function Explain () {
                 <div className={styles.boxCards}>
                     <div className={styles.card}>
                         <MdFoodBank className={ styles.icon } />
-                        <h3 className={styles.text3}>Buscar y conocer todos los restaurantes en donde te encuentres</h3>
-                    </div>
-                    <div className={styles.card}>
-                        <AiFillStar className={ styles.icon } />
-                        <h3 className={styles.text3}>Conocer los TOP 10 restaurantes más elegidos por la comunidad</h3>
+                        <h3 className={styles.text3}>Conocer todo tipo de variedad de restaurantes</h3>
                     </div>
                     <div className={styles.card}>
                         <ImSpoonKnife className={ styles.icon } />
-                        <h3 className={styles.text3}>Ver los menús de cada restaurante</h3>
+                        <h3 className={styles.text3}>Conocer los menús de los restaurante</h3>
+                    </div>
+                    <div className={styles.card}>
+                        <AiFillStar className={ styles.icon } />
+                        <h3 className={styles.text3}>Saber cuales son los mejores restaurantes y platillos, segun la calificación de los usuario</h3>
                     </div>
                     <div className={styles.card}>
                         <FaCommentDots className={ styles.icon } />
-                        <h3 className={styles.text3}>Contar tus experiencias y ayudar a otros a saber cúal es la mejor opción</h3>
+                        <h3 className={styles.text3}>Contar tus experiencias con los platillo y ayudar a otros a saber cúal es la mejor opción</h3>
                     </div>
                 </div>
             </div>

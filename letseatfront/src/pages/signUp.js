@@ -75,7 +75,7 @@ export default function SignUp () {
       Birthday: ""
     })
     console.log(input)
-    navigate("/profile/U/:user_id");
+    navigate("/logIn");
   }
 
   return (
@@ -87,28 +87,34 @@ export default function SignUp () {
                 </Link>
             </div>
             <div className={ styles.boxForm }>
-                <h1 className={styles.mainTitle}>Welcome!</h1>
-                <h3 className={styles.secondaryTitle}>Create an Account</h3>
+                <h1 className={styles.mainTitle}>Bienvenido!</h1>
+                <h3 className={styles.secondaryTitle}>Crear una cuenta</h3>
                 <form className={ styles.form } onSubmit={(e) => handleSubmit(e)}>
                     <div className={styles.secondaryBox}>
-                        <input className={styles.input} type="text" name="UserName" value={input.UserName} placeholder="Name" onChange={(e) => handleInputChange(e)}/>
-                        <input className={styles.input} type="text" name="LastName" value={input.LastName} placeholder="Last name" onChange={(e) => handleInputChange(e)}/>
+                        <input className={styles.input} type="text" name="UserName" value={input.UserName} placeholder="Nombre" onChange={(e) => handleInputChange(e)}/>
+                        <input className={styles.input} type="text" name="LastName" value={input.LastName} placeholder="Apellido" onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className={styles.secondaryBox}>
                         <select className={styles.inputSelect} name='Gender' onChange={(e) => handleInputChange(e)}>
-                            <option className={styles.input} value="">Choose a Gender</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
+                            <option className={styles.input} value="">Género</option>
+                            <option value="female">Femenino</option>
+                            <option value="male">Masculino</option>
                         </select>
-                        <input className={styles.input} type="tel" name="Phone" value={input.Phone} placeholder="Phone" onChange={(e) => handleInputChange(e)}/>
+                        <input className={styles.input} type="tel" name="Phone" value={input.Phone} placeholder="Teléfono" onChange={(e) => handleInputChange(e)}/>
                     </div>
                     <div className={styles.secondaryBox}>
-                        <input className={styles.input} accept="image/*" type="file" name="urlPhoto" value={input.urlPhoto} onChange={(e) => handleInputChange(e)}/>
-                        <input className={styles.input} type="date" name="Birthday" value={input.Birthday} onChange={(e) => handleInputChange(e)} />
+                        <div className={styles.tercerBox}>
+                          <h5 className={styles.subtitle}>Elegir una foto de Perfil</h5>
+                          <input className={styles.inputdiferentes} accept="image/*" type="file" name="urlPhoto" value={input.urlPhoto} onChange={(e) => handleInputChange(e)}/>
+                        </div>
+                        <div className={styles.tercerBox}>
+                          <h5 className={styles.subtitle}>Fecha de Nacimiento</h5>
+                          <input className={styles.inputdiferentes} type="date" name="Birthday" value={input.Birthday} onChange={(e) => handleInputChange(e)} />
+                        </div>
                     </div>
                     <div className={styles.secondaryBox}>
-                        <input className={styles.input} type="email" name="Email" value={input.Email} placeholder="email" onChange={(e) => handleInputChange(e)}/>
-                        <input className={styles.input} type="password" name="Password" value={input.Password} placeholder="password" onChange={(e) => handleInputChange(e)} />
+                        <input className={styles.input} type="email" name="Email" value={input.Email} placeholder="Email" onChange={(e) => handleInputChange(e)}/>
+                        <input className={styles.input} type="password" name="Password" value={input.Password} placeholder="Contraseña" onChange={(e) => handleInputChange(e)} />
                     </div>
                     <button className={styles.button}>SIGN UP</button>
                 </form>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import styles from "./styles/Card.module.css"
 import { AiFillStar } from 'react-icons/ai'
@@ -11,16 +11,32 @@ export default function Card ({ restaurant }) {
 //       console.log(restaurant)
 //   }
 // }, [restaurant]);
-  
-  let sumaScore = 0;
+let score = 0;
 
-  restaurant.scoreBusinesses.map((el) => { 
-    return (
-      sumaScore+=(el.score)
+if(restaurant.scoreBusinesses.length !== 0) {
+  const allScore = restaurant.scoreBusinesses
+  let sumaScore = 0
+
+    allScore.map((el) =>
+        sumaScore+=(el.score)
     )
-  })
+    
+    score = sumaScore/allScore.length
+}
 
-  let score = sumaScore/restaurant.scoreBusinesses.length
+
+
+
+
+  // let sumaScore = 0;
+
+  // restaurant.scoreBusinesses.map((el) => { 
+  //   return (
+  //     sumaScore+=(el.score)
+  //   )
+  // })
+
+  // let score = sumaScore/restaurant.scoreBusinesses.length
   
   return (
     <Link to={`/detail/${restaurant.id}`}>

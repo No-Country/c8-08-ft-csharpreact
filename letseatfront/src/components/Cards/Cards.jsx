@@ -6,6 +6,7 @@ import Card from "../Cards/Card.jsx"
 import HttpCliente from "../../services/HttpCliente";
 //import axios from "axios"
 import { useState } from "react";
+import Filters from "../Filters/Filters";
 //const UrlAllRestaurant = "https://lets-eat.somee.com/api/Business/allBusines?PageNumber=1&PageSize=50"
 
 
@@ -21,18 +22,23 @@ export default function Cards () {
         console.log("busines",response);
         setAllRestaurants(response.data.data);
     },err=>{console.error(err)})
-  
     
 }, []);
   console.log("state",allRestaurants);
   return (
         <div className={styles.container}>
+          <Filters allRestaurants={allRestaurants} setAllRestaurants={setAllRestaurants}/>
           {
+            allRestaurants.length !== 0 &&
+            <>
+            {
             allRestaurants.map((restaurant) => {
               return (
                 <Card restaurant={restaurant} key={restaurant.id} />
               )   
               })
+            }
+              </>
           }      
         </div>
   )
