@@ -11,11 +11,13 @@ Desarrollo de un Sitio web de gastronomía para el público en general, el cual 
 ##### -> Sql Server
 ##### -> Entity Framework
 ##### -> AutoMapper
-#### FRONEND
+#### FRONTEND
 ##### -> React js
 ##### -> html
 ##### -> css
 ## Roles de cada integrante
+Edinson - Meneses  => Backend
+Denise - Cardozo   => Frontend
 ## Link del Deploy
 https://lets-eat-jade.vercel.app
 
