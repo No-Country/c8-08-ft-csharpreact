@@ -11,7 +11,7 @@ namespace WebApiFood.Core.Interfaces
         Task<Response<bool>> Create(RgDishDto rgDishDto);
         Task<Response<IEnumerable<GetDishDto>>> GetAllDish(int idBus);
         Task<Response<IEnumerable<GetCommentDto>>> GetAllCommentByDish(int idDish);
-        Task<bool> Update(User Entity);
+        Task<Response<bool>> Update(int idEntity,UpdateDto entityDto);
         Task<IEnumerable<User>> GetAll();
         Task<User> GetById(int id);
         Task<Response<bool>> Delete(int  IdEntity);

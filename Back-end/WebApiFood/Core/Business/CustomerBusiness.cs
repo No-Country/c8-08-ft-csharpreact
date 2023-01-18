@@ -2,6 +2,7 @@
 using WebApiFood.Core.Helpers;
 using WebApiFood.Core.Interfaces;
 using WebApiFood.Core.Models.Dtos;
+using WebApiFood.Core.Models.Dtos.UserDtos;
 using WebApiFood.Entities;
 using WebApiFood.HandlerArch;
 using WebApiFood.Repositories;
@@ -77,10 +78,46 @@ namespace WebApiFood.Core.Business
             return response;
         }
 
-        public Task<bool> Update(User Entity)
+        public async Task<Response<bool>> Update(UpdateCustomerDto Entity, int iduser)
         {
-            throw new NotImplementedException();
+            Response<bool> response = new Response<bool>();
+            try
+            {
+                Customer customer = await _userRepository.GetCustomerByUserId(iduser);
+                customer.UserName = Entity.UserName;
+                customer.LastName = Entity.LastName;
+                customer.Gender = Entity.Gender;
+                customer.Phone = Entity.Phone;
+                customer.Birthday = Entity.Birthday;
+                customer.UserId = iduser;
+                if(Entity.UrlPhoto != null)
+                {
+                    await _archivo.BorraArchivo(customer.UrlPhoto,"User");
+                    customer.UrlPhoto = await _archivo.GuardarImagen(Entity.UrlPhoto,"User");
+                }
+                await _Repository.CustomerRepository.Update(customer);
+                int code = await _Repository.CustomerRepository.Save();
+                if (code >= 1)
+                {
+                    response.Data = true;
+                    response.Message = "Update Exitoso";
+                    response.IsSucces = true;
+                }
+                else
+                {
+                    response.Data = false;
+                    response.Message = " problemas en el Update!!";
+                    response.IsSucces = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message=ex.Message;
+            }
+            return response;
         }
+
+
         public Task<bool> Delete(User Entity)
         {
             throw new NotImplementedException();

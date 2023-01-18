@@ -16,12 +16,14 @@ namespace WebApiFood.Core.Business
         private readonly IMapper _mapper;
         private readonly IBusinessRepository _businessRepository;
         private readonly IHandlerArch _archivo;
-        public BusinesBusiness(IUnitOfWork repository, IMapper mapper, IBusinessRepository businessRepository, IHandlerArch archivo)
+        private readonly IUserRepository _userRepository;
+        public BusinesBusiness(IUnitOfWork repository, IMapper mapper, IBusinessRepository businessRepository, IHandlerArch archivo, IUserRepository userRepository)
         {
             _Repository = repository;
             _mapper = mapper;
             _businessRepository = businessRepository;
             _archivo = archivo;
+            _userRepository = userRepository;
         }
         /// <summary>
         /// Create Business
@@ -66,9 +68,28 @@ namespace WebApiFood.Core.Business
             return response;
         }
 
-        public Task<bool> Delete(User Entity)
+        public async Task<Response<bool>> Delete(int idEntity)
         {
-            throw new NotImplementedException();
+            Response<bool> response = new Response<bool>();
+            try
+            {
+                Busines busines = await _businessRepository.GetById(idEntity);
+                await _Repository.BusinessRepository.Delete(busines);
+               int code = await _Repository.BusinessRepository.Save();
+                if(code >= 1)
+                {
+                    response.IsSucces = true;
+                    response.Data = true;
+                    response.Message = "Registro eliminado con exito!!";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+            
+            return response;
         }
 
         public async Task<Busines> GetByUserAsync(int idUser)
@@ -81,10 +102,46 @@ namespace WebApiFood.Core.Business
             Response<IEnumerable<ListaBusinesDto>> response = new Response<IEnumerable<ListaBusinesDto>>();
             try
             {
-                IEnumerable<Busines> busines = await _businessRepository.GetAllAsyncByUser(idUser);
-             
-                response.Data = _mapper.Map<ICollection<ListaBusinesDto>>(busines);
-                if (response.Data !=null)
+                User user = await _userRepository.GetById(idUser);
+                if(user != null && user.Seller !=null)
+                {
+                    IEnumerable<Busines> busines = await _businessRepository.GetAllAsyncByUser(user.Seller.Id);
+
+                    response.Data = _mapper.Map<ICollection<ListaBusinesDto>>(busines);
+                    if (response.Data != null)
+                    {
+                        response.IsSucces = true;
+                        response.Message = "consulta exitosa!!";
+                    }
+                    else
+                    {
+                        response.IsSucces = false;
+                        response.Message = "se encontraron problemas en la consulta!!";
+                    }
+                }
+                else
+                {
+                    response.IsSucces = false;
+                    response.Message = "Usuario no encontrado";
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message; 
+            }
+
+            return response;
+        }
+
+        public async Task<Response<ListaBusinesDto>> GetById(int id)
+        {
+            Response<ListaBusinesDto> response = new Response<ListaBusinesDto>();
+            try
+            {
+                Busines busines = await _businessRepository.GetById(id);
+                response.Data = _mapper.Map<ListaBusinesDto>(busines);
+                if (response.Data != null)
                 {
                     response.IsSucces = true;
                     response.Message = "consulta exitosa!!";
@@ -97,15 +154,9 @@ namespace WebApiFood.Core.Business
             }
             catch (Exception ex)
             {
-                response.Message = ex.Message; 
+                   response.Message=ex.Message;
             }
-
             return response;
-        }
-
-        public Task<User> GetById(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<Response<bool>> Update(int idB , UpdateBusinesDto EntityDto)

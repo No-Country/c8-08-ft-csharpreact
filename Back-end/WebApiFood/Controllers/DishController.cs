@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApiFood.Core.Models.Dtos;
 using WebApiFood.Core.Interfaces;
+using WebApiFood.Core.Models.Dtos.DishDtos;
 
 namespace WebApiFood.Controllers
 {
@@ -53,5 +54,21 @@ namespace WebApiFood.Controllers
                 return BadRequest(response);
 
         }
+
+        [HttpPut]
+        [Route("Update/{id}")]
+        public async Task<IActionResult> UpdateDish(int id, [FromForm] UpdateDto entityDto)
+        {
+            var response = await _services.Update(id,entityDto);
+            if (response.Data == false) return NotFound(response);
+            if (response.IsSucces == true)
+            {
+                return Ok(response);
+            }
+            else
+                return BadRequest(response);
+
+        }
+
     }
 }

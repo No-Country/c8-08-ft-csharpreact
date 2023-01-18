@@ -7,7 +7,7 @@
             string myPolicy = "policyApiEcommerce";
             services.AddCors(options =>
                          options.AddPolicy(myPolicy, Policybuilder =>
-                                                     Policybuilder.AllowAnyOrigin()
+                                                     Policybuilder.AllowAnyOrigin()   
                                                                    .AllowAnyHeader()
                                                                    .AllowAnyMethod()));
             return services;

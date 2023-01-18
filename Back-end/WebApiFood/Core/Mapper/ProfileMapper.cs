@@ -39,7 +39,10 @@ namespace WebApiFood.Core.Mapper
             CreateMap<GetCommentDto,Comment>().ReverseMap();
             CreateMap<GetResCustomerDto, Reservation>().ReverseMap();
             CreateMap<GetResSellerDto, Reservation>().ReverseMap();
-
+            CreateMap<CustomerDto, User>().ReverseMap();
+            CreateMap<UpdateDto, Dish>().ReverseMap();
+            CreateMap<UpdateSellerDto, Seller>().ReverseMap().ForMember(x=>x.UrlPhoto,option=>option.Ignore());
+            CreateMap<UpdateCustomerDto, Customer>().ReverseMap().ForMember(x => x.UrlPhoto, option => option.Ignore());
 
         }
     }

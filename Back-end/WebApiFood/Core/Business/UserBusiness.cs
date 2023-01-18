@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WebApiFood.Core.Interfaces;
+using WebApiFood.Core.Models.Dtos;
 using WebApiFood.Core.Models.Dtos.UserDtos;
 using WebApiFood.Entities;
 using WebApiFood.Repositories;
@@ -17,9 +18,80 @@ namespace WebApiFood.Core.Business
             _mapper = mapper;
         }
 
-        public Task<User> GetById(int id)
+        public async Task<Response<User>> GetById(int id)
         {
-            throw new NotImplementedException();
+            Response<User> response = new Response<User>();
+            try
+            {
+                User user = await _userRespository.GetById(id);
+                if (user == null)
+                {
+                    response.IsSucces= false;
+                    response.Data = null;
+                    response.Message = "No se encontraron Registros!!";
+                }
+                else
+                {
+                    response.IsSucces= true;
+                    response.Data = user;
+                }
+            }
+            catch (Exception ex )
+            {
+                response.Message= ex.Message;
+            }
+           return response;
+           
+        }
+
+        public async Task<Response<CustomerDto>> GetByIdCustomer(int id)
+        {
+            Response<CustomerDto> response = new Response<CustomerDto>();
+            try
+            {
+                Customer customer = await _userRespository.GetByIdCustomer(id);
+                response.Data = _mapper.Map<CustomerDto>(customer);
+                if(response.Data != null)
+                {
+                    response.IsSucces = true;
+                    response.Message = "consulta exitosa";
+                }
+                else
+                {
+                    response.IsSucces = false;
+                    response.Message = "problemas en la consulta";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<Response<SellerDto>> GetByIdSeller(int id)
+        {
+            Response<SellerDto> response = new Response<SellerDto>();
+            try
+            {
+                Seller seller = await _userRespository.GetByIdSeller(id);
+                response.Data = _mapper.Map<SellerDto>(seller);
+                if (response.Data != null)
+                {
+                    response.IsSucces = true;
+                    response.Message = "consulta exitosa";
+                }
+                else
+                {
+                    response.IsSucces = false;
+                    response.Message = "problemas en la consulta";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+            return response;
         }
 
         public Task<User> GetByName(string name)

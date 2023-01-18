@@ -159,9 +159,60 @@ namespace WebApiFood.Core.Business
             throw new NotImplementedException();
         }
 
-        public Task<bool> Update(User Entity)
+        public async Task<Response<bool>> Update(int idEntity, UpdateDto entityDto)
         {
-            throw new NotImplementedException();
+            Response<bool> response = new();
+            try
+            {
+                ICollection<PictureDish> search = await _pictureDishRepository.GetPictureDishById(idEntity);
+                Dish dish = _mapper.Map<Dish>(entityDto);
+                dish.Id = idEntity;
+                if(entityDto.img.Count() >= 1)
+                {
+                    ICollection<PictureDish> pictureDishes = new List<PictureDish>();
+                    foreach (var item in entityDto.img)
+                    {
+                        PictureDish pictureDishItem = new PictureDish();
+                        pictureDishItem.UrlImg = await _archivo.GuardarImagen(item, "Dish");
+                        pictureDishes.Add(pictureDishItem);
+                    }
+                    dish.PictureDishes = pictureDishes;
+                    await _Repository.DishRepository.Update(dish);
+                    int code = await _Repository.DishRepository.Save();
+                    if(code >= 1)
+                    {
+                        response.Data = true;
+                        response.IsSucces = true;
+                        response.Message = "consulta Exitosa!!";
+                    }
+                    else
+                    {
+                        response.Data = false;
+                        response.IsSucces = false;
+                        response.Message = "problema en la consulta!!";
+                    }
+                        
+                }
+                await _Repository.DishRepository.Update(dish);
+                int code2 = await _Repository.DishRepository.Save();
+                if (code2 >= 1)
+                {
+                    response.Data = true;
+                    response.IsSucces = true;
+                    response.Message = "consulta Exitosa!!";
+                }
+                else
+                {
+                    response.Data = false;
+                    response.IsSucces = false;
+                    response.Message = "problema en la consulta!!";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+            return response;
         }
     }
 }

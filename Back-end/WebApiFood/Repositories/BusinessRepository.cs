@@ -40,13 +40,24 @@ namespace WebApiFood.Repositories
 
         public async Task<Busines> GetById(int id)
         {
-            return await _contex.Businesses.FirstOrDefaultAsync(x => x.Id == id);
+            return await _contex.Businesses.Include(x=>x.ScoreBusinesses)
+                                           .Include(y => y.Dishes)
+                                           .Include(x=>x.PictureBusinesses)
+                                           .Include(n => n.Reservations)
+                                           .FirstOrDefaultAsync(x => x.Id == id);
         }
-
-        public  Task<Busines> GetByIdUser(int idUser)
+        /// <summary>
+        /// returnar los negocios asociados a un usuario en especifico
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <returns></returns>
+        public  async Task<Busines> GetByIdUser(int idUser)
         {
-            Busines busine = (Busines) _contex.Businesses.Include(x=>x.PictureBusinesses).Include(y=>y.Dishes);
-            return Task.FromResult(busine);
+            Busines busine = await _contex.Businesses.Include(x=>x.PictureBusinesses)
+                                                          .Include(y=>y.Dishes)
+                                                          .Include(z=>z.ScoreBusinesses)
+                                                          .Include(n=>n.Reservations).FirstAsync();
+            return busine;
         }
 
         public async Task<Busines> GetByName(string name)

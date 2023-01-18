@@ -14,13 +14,13 @@ namespace WebApiFood.Controllers
     public class BusinessController : ControllerBase
     {
         private readonly IBusinesBusiness _services;
-        
+
 
 
         public BusinessController(IBusinesBusiness services)
         {
             _services = services;
-           
+
         }
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] RgBusinessDto rgBusinessDto)
@@ -32,32 +32,66 @@ namespace WebApiFood.Controllers
         [Route("BusineByUser")]
         public async Task<IActionResult> GetBusinessByUser()
         {
-           var  claims = HttpContext.User.Claims;
+            var claims = HttpContext.User.Claims;
             //int idUser = int.Parse(HttpContext.User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"))?.Value);
-           int idUser = TokenJwt.GetUserId(claims);
+            int idUser = TokenJwt.GetUserId(claims);
             if (claims.Any())
             {
                 var response = await _services.GetAllByUserAsync(idUser);
-                return Ok(response);
+                if (response.IsSucces == true)
+                {
+                    return Ok(response);
+                }
+                else
+                    return BadRequest(response);
+                
             }
             else
                 return Unauthorized();
-           
-           
+
+
         }
         [HttpGet]
         [Route("allBusines")]
-        public async Task<IActionResult> GetAllBusiness([FromQuery(Name ="PageNumber")] int pageNumber, [FromQuery(Name ="PageSize")] int pageSize)
+        public async Task<IActionResult> GetAllBusiness([FromQuery(Name = "PageNumber")] int pageNumber, [FromQuery(Name = "PageSize")] int pageSize)
         {
 
-            var response = await _services.GetAllBusinesAsync(pageNumber,pageSize);
+            var response = await _services.GetAllBusinesAsync(pageNumber, pageSize);
             return Ok(response);
         }
+        [HttpGet]
+        [Route("{idB}")]
+        public async Task<IActionResult> GetBusinesId(int idB)
+        {
+            var response = await _services.GetById(idB);
+            if(response.IsSucces == true)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest(response);
+            }
+        }
+
         [HttpPut]
         [Route("update/{idB}")]
         public async Task<IActionResult> UpdateBusiness( int idB, [FromForm] UpdateBusinesDto EntityDto)
         {
             var response = await _services.Update(idB ,EntityDto);
+            if (response.IsSucces == true)
+            {
+                return Ok(response);
+            }
+            else
+                return BadRequest(response);
+            
+        }
+        [HttpDelete]
+        [Route("Delecte/{idB}")]
+        public async Task<IActionResult> Delecte(int idB)
+        {
+            var response = await _services.Delete(idB);
             return Ok(response);
         }
     }

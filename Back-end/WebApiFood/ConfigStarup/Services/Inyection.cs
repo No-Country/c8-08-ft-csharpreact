@@ -28,6 +28,9 @@ namespace WebApiFood.ConfigStarup.Services
             services.AddScoped<IHandlerArch, HandlerArchivos>();
             services.AddScoped<IReservationRepository, ReservationRepository>();
             services.AddScoped<IPictureDishRepository, PictureDishRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<IImageBusiness, ImageBisiness>();
+            services.AddScoped<IImageRepository, ImageRepository>();
             return services;
         }
     }

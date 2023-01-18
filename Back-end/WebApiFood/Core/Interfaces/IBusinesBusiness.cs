@@ -12,7 +12,7 @@ namespace WebApiFood.Core.Interfaces
         Task<Busines> GetByUserAsync(int idUser);
         Task<Response<IEnumerable<ListaBusinesDto>>> GetAllByUserAsync(int idUser);
         Task<Pagination<IEnumerable<ListaBusinesDto>>> GetAllBusinesAsync( int pageNumber,int pageSize);
-        Task<User> GetById(int id);
-        Task<bool> Delete(User Entity);
+        Task<Response<ListaBusinesDto>> GetById(int id);
+        Task<Response<bool>> Delete(int idEntity);
     }
 }

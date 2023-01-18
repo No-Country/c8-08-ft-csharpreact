@@ -9,6 +9,7 @@ using WebApiFood.ConfigStarup.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 string myPolicy = "policyApiEcommerce";
+builder.Services.AddCors();
 builder.Services.AddContext(builder.Configuration);
 // Add services to the container.
 builder.Services.AddInyections();
@@ -17,7 +18,8 @@ builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddAuth0(builder.Configuration);
-builder.Services.AddFeature(builder.Configuration);
+//builder.Services.AddFeature(builder.Configuration);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger();
@@ -25,14 +27,15 @@ builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseCors(builder =>builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+if (app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
-app.UseCors(myPolicy);
+
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();

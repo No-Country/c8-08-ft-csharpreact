@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using WebApiFood.Core.Interfaces;
 using WebApiFood.Core.Models.Dtos;
+using WebApiFood.Core.Models.Dtos.UserDtos;
 using WebApiFood.Entities;
 using WebApiFood.HandlerArch;
 using WebApiFood.Repositories;
@@ -75,9 +76,48 @@ namespace WebApiFood.Core.Business
             throw new NotImplementedException();
         }
 
-        public Task<bool> Update(User Entity)
+        public async Task<Response<bool>> Update(UpdateSellerDto Entity, int iduser)
         {
-            throw new NotImplementedException();
+            Response<bool> response = new Response<bool>();
+            try
+            {
+                Seller sellersql = await _userRepository.GetByUserId(iduser);
+                //Seller seller = _mapper.Map<Seller>(Entity);
+                sellersql.UserName = Entity.UserName;
+                sellersql.LastName = Entity.LastName;
+                sellersql.Gender = Entity.Gender;
+                sellersql.Phone = Entity.Phone;
+                sellersql.Adress = Entity.Adress;
+                sellersql.UserId = iduser;
+                await _archivo.BorraArchivo(sellersql.UrlPhoto, "User");
+                if (Entity.UrlPhoto != null)
+                {
+                    sellersql.UrlPhoto = await _archivo.GuardarImagen(Entity.UrlPhoto, "User");
+                    
+                }
+                await _Repository.SellerRepository.Update(sellersql);
+                int code = await _Repository.SellerRepository.Save();
+                if (code >= 1)
+                {
+                    response.Data = true;
+                    response.IsSucces = true;
+                    response.Message = "Update Exitoso!!";
+                }
+                else
+                {
+                    response.Data = false;
+                    response.IsSucces = false;
+                    response.Message = "Problema con el Update!!";
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+            return response;
         }
     }
 }

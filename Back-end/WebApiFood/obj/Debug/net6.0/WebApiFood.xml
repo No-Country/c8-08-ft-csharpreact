@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiFood</name>
+    </assembly>
+    <members>
+        <member name="M:WebApiFood.Core.Business.BusinesBusiness.Create(WebApiFood.Core.Models.Dtos.RgBusinessDto)">
+            <summary>
+            Create Business
+            </summary>
+            <param name="rgbusinesDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiFood.Core.Business.UserBusiness.GetUsers">
+            <summary>
+            Obtener todos los usuarios como cliente y vendedor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiFood.Repositories.BusinessRepository.GetByIdUser(System.Int32)">
+            <summary>
+            returnar los negocios asociados a un usuario en especifico
+            </summary>
+            <param name="idUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiFood.Repositories.CommentRepository.GetByUser(System.Int32)">
+            <summary>
+            obtener todos los comentarios por Usuario
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:WebApiFood.Repositories.DishRepository.GetAllByBusiness(System.Int32)">
+            <summary>
+            returnar todos los platos por negocio
+            </summary>
+            <param name="idBus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiFood.Repositories.DishRepository.GetAllBydish(System.Int32)">
+            <summary>
+            retorna todos los comentarios por id del plato
+            </summary>
+            <param name="idDish"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiFood.Repositories.ReservationRepository.GetByCustomer(System.Int32)">
+            <summary>
+            retorna todos las reservaciones del un cliente
+            </summary>
+            <param name="idCustomer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiFood.Repositories.ReservationRepository.GetBySeller(System.Int32)">
+            <summary>
+            Retorna todas las reservaciones de un negocio
+            </summary>
+            <param name="idSeller"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
