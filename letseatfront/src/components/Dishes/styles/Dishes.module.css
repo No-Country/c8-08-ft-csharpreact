@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.boxCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 90%;
+    margin: 20px auto 70px auto;
+
+}
+
+.title {
+    margin: 10px 0px 0px 0px;
+    font-family: 'Satisfy', cursive;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+}

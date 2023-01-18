@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    height: auto;
+    width: 90%;    
+    border: solid 1px rgb(169, 169, 169);
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.boxPrincipal {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.boxScore {
+    display: flex;  
+    flex-direction: row;  
+    align-items: center;
+}
+
+.comment {
+    width: 90%;
+    font-weight: 300;
+    font-size: 1.3rem;
+}

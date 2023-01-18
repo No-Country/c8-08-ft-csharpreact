@@ -1,0 +1,109 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: url("../../../tools/food6.webp") no-repeat center center;
+    background-size:cover;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.principalBox {
+    display: flex;
+    flex-direction: row;
+    background-color:  rgba(0, 0, 0, 0.453);
+    /* backdrop-filter: blur(2px); */
+    height: 400px;
+    width: 100%;
+    align-items: center;
+}
+
+.boxText {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin: 0px 400px 0px 80px;
+    align-items: center;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.textAd1, .textAd2 {
+    text-align: center;
+    margin: 0px;
+}
+
+/* font-family: 'Alumni Sans Pinstripe', sans-serif;
+font-family: 'Julius Sans One', sans-serif;
+font-family: 'Poiret One', cursive; */
+
+.textAd1 {
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);    
+    font-size: 5rem;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+
+
+}
+
+.textAd2 {
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);    
+    font-size: 2rem;
+    width: 70%;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    text-align: end;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    color: aliceblue;
+}
+
+.name {
+    font-size: 2rem;
+    color: aliceblue;
+    margin-right: 15px;
+}
+
+.boxIcon {
+    display:flex;
+    min-height: 100vh;
+    width: 30%;
+    background-color:  rgba(0, 0, 0, 0.453);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    margin-right: 80px;
+}
+
+.boxLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    border: none;
+    background-color: rgb(60, 140, 108);
+    font-weight: bold;
+    margin-top: 50px;
+    height: 45px;
+    width: 150px;
+    /* padding: 0px 20px; */
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    
+
+}
+.button:hover {
+    color: rgb(60, 140, 108);
+    background-color: rgb(39, 39, 39);
+    cursor: pointer;
+}

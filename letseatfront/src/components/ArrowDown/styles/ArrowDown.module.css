@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+}
+
+.iconArrow {
+    width: 70px;
+    height: 70px;
+    color: white;
+    animation: saltar 1s infinite;
+    transform: translateY(0);
+}
+
+@keyframes saltar {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(45px);
+    }
+}

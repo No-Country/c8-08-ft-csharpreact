@@ -1,0 +1,50 @@
+.container {
+    height: 380px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+
+.picture {
+    height: 285px;
+    width: 300px;
+    background-color: rgb(60, 140, 108);
+    margin: 0px 0px 15px 0px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.boxTitle {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxScore {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.name {
+    margin: 0px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.details {
+    margin: 0px;
+    color: rgb(116, 112, 112);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.like {
+    height: 25px;
+    width: 25px;
+    margin: 20px 20px 0 auto;
+    filter:  invert(1);
+}
